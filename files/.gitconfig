@@ -1,0 +1,8 @@
+[include]
+  path = ~/.gitconfigs/private
+[core]
+  excludesfile = /Users/Andrew/.gitignore
+[rebase]
+  autoStash = true
+[credential]
+  helper = osxkeychain
