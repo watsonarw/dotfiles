@@ -1,0 +1,23 @@
+{
+  "telemetry.enableCrashReporter": false,
+  "telemetry.enableTelemetry": false,
+  "workbench.iconTheme": "material-icon-theme",
+  "editor.renderWhitespace": "all",
+  "editor.formatOnPaste": true,
+  "editor.scrollBeyondLastLine": false,
+  "editor.tabSize": 2,
+  "explorer.openEditors.visible": 0,
+  "files.autoSave": "onFocusChange",
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "editor.fontFamily": "Hack, Source Code Pro, Menlo, Monaco, 'Courier New', monospace",
+  "editor.rulers": [
+    120
+  ],
+  "editor.wordWrapColumn": 120,
+  "editor.wordWrap": "bounded",
+  "editor.fontSize": 14,
+  "terminal.integrated.fontSize": 14,
+  "extensions.ignoreRecommendations": true
+}
