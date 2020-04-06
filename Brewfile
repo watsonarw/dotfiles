@@ -16,6 +16,7 @@ cask "rectangle"
 cask "docker"
 cask "keepingyouawake"
 cask "visual-studio-code"
+cask "gimp"
 
 cask "1password"
 cask "authy"

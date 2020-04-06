@@ -13,6 +13,7 @@ main() {
   code --install-extension RoscoP.ActiveFileInStatusBar
   code --install-extension vscodevim.vim
   code --install-extension foxundermoon.shell-format
+  code --install-extension CoenraadS.bracket-pair-colorizer
 
   green_tick "Installed vscode extensions"
 }
