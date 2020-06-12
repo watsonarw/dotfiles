@@ -14,6 +14,7 @@ main() {
   code --install-extension vscodevim.vim
   code --install-extension foxundermoon.shell-format
   code --install-extension CoenraadS.bracket-pair-colorizer
+  code --install-extension yzhang.markdown-all-in-one
 
   green_tick "Installed vscode extensions"
 }

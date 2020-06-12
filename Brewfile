@@ -9,6 +9,8 @@ brew "coreutils"
 brew "tldr"
 brew "zsh"
 brew "z"
+brew "asdf"
+brew "gpg"
 
 cask "firefox"
 cask "iterm2"
