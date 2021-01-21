@@ -33,3 +33,6 @@ cask "font-hack"
 
 tap "homebrew/cask-drivers"
 cask "logitech-options"
+
+brew "mas"
+mas "XCode", id: 497799835
