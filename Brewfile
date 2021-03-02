@@ -26,7 +26,7 @@ cask "nordvpn"
 
 cask "google-chat"
 cask "slack"
-cask "zoomus"
+cask "zoom"
 
 tap "homebrew/cask-fonts"
 cask "font-hack"
