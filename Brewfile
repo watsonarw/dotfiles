@@ -1,3 +1,5 @@
+tap "homebrew/bundle"
+
 brew "gcc"
 brew "libressl"
 brew "openssh"
@@ -10,7 +12,7 @@ brew "tldr"
 brew "zsh"
 brew "z"
 brew "asdf"
-brew "gpg"
+brew "gnupg"
 
 cask "firefox"
 cask "iterm2"
@@ -18,21 +20,25 @@ cask "rectangle"
 cask "docker"
 cask "keepingyouawake"
 cask "visual-studio-code"
+
 cask "gimp"
+cask "blender"
 
 cask "1password"
 cask "authy"
-cask "nordvpn"
+cask "keepassxc"
 
-cask "google-chat"
-cask "slack"
+cask "expressvpn"
+
 cask "zoom"
 
 tap "homebrew/cask-fonts"
 cask "font-hack"
+cask "font-fira-code"
 
 tap "homebrew/cask-drivers"
 cask "logitech-options"
+cask "wacom-tablet"
 
 brew "mas"
 mas "XCode", id: 497799835
