@@ -6,6 +6,7 @@ brew "openssh"
 brew "git"
 
 tap "homebrew/cask"
+tap "homebrew/cask-versions"
 
 brew "coreutils"
 brew "tldr"
@@ -20,6 +21,10 @@ cask "rectangle"
 cask "docker"
 cask "keepingyouawake"
 cask "visual-studio-code"
+
+cask "ferdi"
+cask "notion"
+cask "obsidian"
 
 cask "gimp"
 cask "blender"
