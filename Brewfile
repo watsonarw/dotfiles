@@ -40,6 +40,8 @@ cask "zoom"
 tap "homebrew/cask-fonts"
 cask "font-hack"
 cask "font-fira-code"
+cask "font-bitter"
+cask "font-inter"
 
 tap "homebrew/cask-drivers"
 cask "logitech-options"
