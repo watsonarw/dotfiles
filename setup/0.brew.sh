@@ -9,8 +9,11 @@ main() {
     green_tick "Installed Homebrew"
   fi
 
+  h2 "Linking global Brewfile"
+  ln -sf "${script_dir}/Brewfile" "${HOME}/.Brewfile"
+
   h2 "Running brew bundle"
-  brew bundle --file "${script_dir}/Brewfile"
+  brew bundle --global
   green_tick "Ran brew bundle"
 }
 
