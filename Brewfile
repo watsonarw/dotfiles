@@ -15,12 +15,14 @@ brew "z"
 brew "asdf"
 brew "gnupg"
 
-cask "firefox"
-cask "iterm2"
 cask "rectangle"
-cask "docker"
 cask "keepingyouawake"
+cask "firefox"
+
+cask "iterm2"
+cask "docker"
 cask "visual-studio-code"
+cask "insomnia"
 
 cask "ferdi"
 cask "notion"
@@ -36,6 +38,8 @@ cask "keepassxc"
 cask "expressvpn"
 
 cask "zoom"
+cask "obs"
+cask "farrago"
 
 tap "homebrew/cask-fonts"
 cask "font-hack"
