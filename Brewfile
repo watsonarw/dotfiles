@@ -14,6 +14,8 @@ brew "zsh"
 brew "z"
 brew "asdf"
 brew "gnupg"
+brew "tree"
+brew "htop"
 
 cask "rectangle"
 cask "keepingyouawake"
