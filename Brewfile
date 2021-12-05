@@ -44,10 +44,12 @@ cask "obs"
 cask "farrago"
 
 tap "homebrew/cask-fonts"
+brew "svn"
 cask "font-hack"
 cask "font-fira-code"
 cask "font-bitter"
 cask "font-inter"
+cask "font-playfair-display"
 
 tap "homebrew/cask-drivers"
 cask "logitech-options"
