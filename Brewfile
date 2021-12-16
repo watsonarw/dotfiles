@@ -57,3 +57,4 @@ cask "wacom-tablet"
 
 brew "mas"
 mas "XCode", id: 497799835
+mas "Horo - Timer for Menu Bar", id: 1437226581
