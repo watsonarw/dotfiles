@@ -37,7 +37,7 @@ cask "1password"
 cask "authy"
 cask "keepassxc"
 
-cask "expressvpn"
+cask "nordvpn"
 
 cask "zoom"
 cask "obs"
