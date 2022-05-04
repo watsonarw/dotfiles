@@ -22,9 +22,12 @@ cask "keepingyouawake"
 cask "firefox"
 
 cask "iterm2"
-cask "docker"
 cask "visual-studio-code"
 cask "insomnia"
+
+brew "colima"
+brew "docker"
+brew "docker-compose"
 
 cask "ferdi"
 cask "notion"
