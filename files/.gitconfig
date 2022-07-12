@@ -1,7 +1,7 @@
 [include]
   path = ~/.gitconfigs/private
 [core]
-  excludesfile = /Users/Andrew/.gitignore
+  excludesfile = /Users/awatson/.gitignore
 [rebase]
   autoStash = true
 [credential]

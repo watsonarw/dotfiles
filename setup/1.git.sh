@@ -4,38 +4,38 @@
 
 readonly ssh_dir="${HOME}/.ssh"
 readonly ssh_config_file="${ssh_dir}/config"
-readonly ssh_key_file=${ssh_dir}/github-id_ed25519
 
 check_ssh_config() {
   touch "${ssh_config_file}"
-  cat "${ssh_config_file}" | grep -E "Hostname\s+github\.com$"
+  cat "${ssh_config_file}" | grep -E "Host\s+\*$"
 }
 
 setup_ssh_config() {
   echo "Setting up ssh config"
+
+  mkdir -p ~/.1password && ln -sf ~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock ~/.1password/agent.sock
+
   if [ -z "$(check_ssh_config)" ]; then
     cat >> "${ssh_config_file}" <<EOF
 
-Host github.com
-  Hostname github.com
-  IdentityFile ${ssh_key_file}
+Host example.com # break glass for sites that 1password agent doesn't support. Must be above Host *
+  Hostname example.com
+  IdentityAgent "/private/tmp/com.apple.launchd.iBFPc8NjZo/Listeners"
+  IdentityFile /Users/awatson.ssh/id_rsa
+
+Host *
+  IdentityAgent "~/.1password/agent.sock"
+
 EOF
   green_tick "set config is setup"
   else
-    echo "ssh config is already set up for github.com"
+    echo "ssh config is already set up to use 1password agent"
   fi
 }
 
 github_fail_message() {
   printf "${RED}"
-  cat <<EOF
-Failed to connect to github. I might automate this one day, but for now you'll
-need to manually create the ssh key and add it to the github account.
-
-You can use the command below to create the key
-
-ssh-keygen -t ed25519 -f ${ssh_key_file} -n <email-address>
-EOF
+  echo "Failed to connect to github. Please make sure 1password is setup."
   printf "${RESET}"
 }
 
@@ -61,20 +61,26 @@ setup_git_config() {
   echo "Setting up git config"
   cat > "${HOME}/.gitconfig" <<EOF
 [include]
-  path = ~/.dotfiles/files/.gitconfig
+  path = ${script_dir}/files/.gitconfig
 EOF
   mkdir -p "${gitconfigs_dir}"
   touch "${gitconfigs_dir}/private"
+}
+
+setup_global_gitignore() {
+  h2 "Setting up global gitignore"
+  ln -sf "${script_dir}/files/.gitignore" "${HOME}/.gitignore"
+  green_tick "Connection to github successful"
 }
 
 main() {
   h2 "Setting up github ssh"
   setup_ssh_config
   setup_git_config
-  ssh-add "${ssh_key_file}"
 
   validate_github_ssh
 
+  setup_global_gitignore
 }
 
 main

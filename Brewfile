@@ -45,6 +45,8 @@ cask "nordvpn"
 cask "zoom"
 cask "obs"
 cask "farrago"
+cask "elgato-camera-hub"
+cask "elgato-stream-deck"
 
 tap "homebrew/cask-fonts"
 brew "svn"
