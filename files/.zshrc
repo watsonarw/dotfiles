@@ -98,7 +98,4 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-unset ASDF_DIR # Temporary work around for https://github.com/asdf-vm/asdf/issues/1103
-export ASDF_DIR="$(brew --prefix asdf)/libexec"
-
 export PATH="/usr/local/sbin:$PATH"

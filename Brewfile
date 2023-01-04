@@ -20,18 +20,19 @@ brew "htop"
 cask "rectangle"
 cask "keepingyouawake"
 cask "firefox"
+cask "brave-browser"
 
 cask "iterm2"
 cask "visual-studio-code"
 cask "insomnia"
+cask "charles"
 
 brew "colima"
 brew "docker"
 brew "docker-compose"
 
-cask "ferdi"
-cask "notion"
-cask "obsidian"
+tap "ferdium/ferdium"
+cask "ferdium/ferdium/ferdium"
 
 cask "gimp"
 cask "blender"
@@ -57,7 +58,7 @@ cask "font-inter"
 cask "font-playfair-display"
 
 tap "homebrew/cask-drivers"
-cask "logitech-options"
+cask "logi-options-plus"
 cask "wacom-tablet"
 
 brew "mas"
