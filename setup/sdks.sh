@@ -3,6 +3,7 @@
 . $(dirname $0)/../commons.sh
 
 tool_versions_file="$(dirname ${script_dir}/..)/.tool-versions"
+global_tool_versions_file="${HOME}/.tool-versions"
 
 main() {
   h2 "Installing sdks with asdf"
@@ -15,7 +16,7 @@ main() {
   asdf install
 
   echo_bold "Setting versions globally"
-  cat $tool_versions_file | xargs -n2 asdf global
+  ln -sf $tool_versions_file $global_tool_versions_file
 
   green_tick "Installed SDKs from $tool_versions_file"
 }

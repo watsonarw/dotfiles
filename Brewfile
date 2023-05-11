@@ -15,7 +15,7 @@ brew "z"
 brew "asdf"
 brew "gnupg"
 brew "tree"
-brew "htop"
+brew "btop"
 
 cask "rectangle"
 cask "keepingyouawake"
@@ -64,3 +64,10 @@ cask "wacom-tablet"
 brew "mas"
 mas "XCode", id: 497799835
 mas "Horo - Timer for Menu Bar", id: 1437226581
+
+# cask "android-studio" # groups: :android :reactnative
+# cask "android-commandlinetools" # groups: :android :reactnative
+# cask "vysor" # groups: :android :ios :reactnative
+
+# brew "watchman" # groups: :reactnative
+# cask "react-native-debugger" # groups: :reactnative
