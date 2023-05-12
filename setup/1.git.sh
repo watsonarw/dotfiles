@@ -4,6 +4,7 @@
 
 readonly ssh_dir="${HOME}/.ssh"
 readonly ssh_config_file="${ssh_dir}/config"
+readonly global_gitconfig_file="${HOME}/.gitconfig"
 
 check_ssh_config() {
   touch "${ssh_config_file}"
@@ -56,10 +57,15 @@ validate_github_ssh() {
   set -e
 }
 
+clean_global_git_config() {
+ echo "" > $global_gitconfig_file
+}
+
 setup_git_config() {
+
   local gitconfigs_dir="${HOME}/.gitconfigs"
   echo "Setting up git config"
-  cat > "${HOME}/.gitconfig" <<EOF
+  cat >> "${global_gitconfig_file}" <<EOF
 [include]
   path = ${script_dir}/files/.gitconfig
 EOF
@@ -70,17 +76,30 @@ EOF
 setup_global_gitignore() {
   h2 "Setting up global gitignore"
   ln -sf "${script_dir}/files/.gitignore" "${HOME}/.gitignore"
-  green_tick "Connection to github successful"
+
+}
+
+setup_global_git_template() {
+local gitconfigs_dir="${HOME}/.gitconfigs"
+  echo "Setting up git template"
+  cat >> "${global_gitconfig_file}" <<EOF
+[init]
+  templatedir = ${script_dir}/files/.git-template
+EOF
 }
 
 main() {
   h2 "Setting up github ssh"
+  clean_global_git_config
   setup_ssh_config
   setup_git_config
 
   validate_github_ssh
 
   setup_global_gitignore
+  setup_global_git_template
+
+  green_tick "Done"
 }
 
 main
