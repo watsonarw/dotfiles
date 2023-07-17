@@ -7,15 +7,11 @@
 # Pow and Powder config
 /.pow*
 
-# RVM and rbenv
-/.rvmrc
-/.rbenv-version
+# Ruby
+.irb_history
 
 # Bundler binstubs
 /bin/
-
-# Nodenv version file
-.node-version
 
 # VSCode files
 /.vs/

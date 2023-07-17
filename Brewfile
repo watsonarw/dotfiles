@@ -16,6 +16,7 @@ brew "asdf"
 brew "gnupg"
 brew "tree"
 brew "btop"
+brew "jq"
 
 cask "rectangle"
 cask "keepingyouawake"
