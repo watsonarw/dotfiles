@@ -76,16 +76,6 @@ EOF
 setup_global_gitignore() {
   h2 "Setting up global gitignore"
   ln -sf "${script_dir}/files/.gitignore" "${HOME}/.gitignore"
-
-}
-
-setup_global_git_template() {
-local gitconfigs_dir="${HOME}/.gitconfigs"
-  echo "Setting up git template"
-  cat >> "${global_gitconfig_file}" <<EOF
-[init]
-  templatedir = ${script_dir}/files/.git-template
-EOF
 }
 
 main() {
@@ -97,7 +87,6 @@ main() {
   validate_github_ssh
 
   setup_global_gitignore
-  setup_global_git_template
 
   green_tick "Done"
 }
