@@ -5,9 +5,6 @@ brew "libressl"
 brew "openssh"
 brew "git"
 
-tap "homebrew/cask"
-tap "homebrew/cask-versions"
-
 brew "coreutils"
 brew "tldr"
 brew "zsh"
@@ -25,7 +22,7 @@ cask "brave-browser"
 
 cask "iterm2"
 cask "visual-studio-code"
-cask "insomnia"
+cask "bruno"
 cask "charles"
 
 brew "colima"
