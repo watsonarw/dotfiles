@@ -5,7 +5,7 @@
 main() {
   local ZSH="${HOME}/.oh-my-zsh"
   local KEEP_ZSHRC=yes
-  h2 "Setting up ohmyzsh"
+  h1 "Setting up ohmyzsh"
 
   if [ ! -d "$ZSH" ]; then
     echo "Installing ohmyzsh"

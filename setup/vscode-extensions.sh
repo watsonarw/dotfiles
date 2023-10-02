@@ -4,7 +4,7 @@
 
 
 main() {
-  h2 "Installing useful vscode extensions"
+  h1 "Installing useful vscode extensions"
   code --install-extension dbaeumer.vscode-eslint
   code --install-extension EditorConfig.EditorConfig
   code --install-extension ms-azuretools.vscode-docker

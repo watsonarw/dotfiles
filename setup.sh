@@ -3,6 +3,7 @@
 . $(dirname $0)/commons.sh
 
 main_title() {
+  printf "${YELLOW}"
   cat <<EOF
 |---------------------------------|
 |                                 |
@@ -10,9 +11,11 @@ main_title() {
 |                                 |
 |---------------------------------|
 EOF
+  printf "${RESET}"
 }
 
 done_message() {
+  printf "${GREEN}"
   cat <<EOF
 |---------------------------------|
 |                                 |
@@ -20,22 +23,22 @@ done_message() {
 |                                 |
 |---------------------------------|
 EOF
+  printf "${RESET}"
 }
 
-execute_file() {
-  local filename="$1"
-
-  h1 "Running setup ${filename}"
-  /bin/bash "${filename}"
-}
-
-main() {
-  main_title
-  for SCRIPT in ${script_dir}/setup/*; do
+run_executable_files() {
+  local scripts_glob=$1
+  for SCRIPT in ${scripts_glob}; do
     if [ -f $SCRIPT -a -x $SCRIPT ]; then
       execute_file "$SCRIPT"
     fi
   done
+}
+
+main() {
+  main_title
+
+  run_executable_files "${script_dir}/setup/*"
 
   done_message
 }

@@ -2,9 +2,16 @@ set -euo pipefail
 
 readonly script_name=$(basename "${0}")
 readonly script_dir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+readonly current_script_dir=$( cd "$( dirname "${0}" )" && pwd )
 
 command_exists () {
   type "$1" &> /dev/null ;
+}
+
+execute_file() {
+  local filename="$1"
+
+  /bin/bash "${filename}"
 }
 
 setup_color() {
@@ -31,11 +38,17 @@ echo_bold() {
 }
 
 h1() {
-  echo_bold "========== $1 ==========\n"
+	echo ""
+  echo_bold "${BLUE}========== $1 ==========${RESET}"
+	echo ""
 }
 
 h2() {
   echo_bold "----- $1 -----"
+}
+
+h3() {
+  echo_bold "*** $1 ***"
 }
 
 green_tick() {

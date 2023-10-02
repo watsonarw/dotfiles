@@ -12,17 +12,12 @@ check_ssh_config() {
 }
 
 setup_ssh_config() {
-  echo "Setting up ssh config"
+  h2 "Setting up ssh config"
 
   mkdir -p ~/.1password && ln -sf ~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock ~/.1password/agent.sock
 
   if [ -z "$(check_ssh_config)" ]; then
     cat >> "${ssh_config_file}" <<EOF
-
-Host example.com # break glass for sites that 1password agent doesn't support. Must be above Host *
-  Hostname example.com
-  IdentityAgent "/private/tmp/com.apple.launchd.iBFPc8NjZo/Listeners"
-  IdentityFile /Users/awatson.ssh/id_rsa
 
 Host *
   IdentityAgent "~/.1password/agent.sock"
@@ -58,13 +53,13 @@ validate_github_ssh() {
 }
 
 clean_global_git_config() {
- echo "" > $global_gitconfig_file
+  echo "Cleaning global gitconfg"
+  echo "" > $global_gitconfig_file
 }
 
 setup_git_config() {
-
   local gitconfigs_dir="${HOME}/.gitconfigs"
-  echo "Setting up git config"
+  h2 "Setting up git config"
   cat >> "${global_gitconfig_file}" <<EOF
 [include]
   path = ${script_dir}/files/.gitconfig
@@ -79,8 +74,9 @@ setup_global_gitignore() {
 }
 
 main() {
-  h2 "Setting up github ssh"
+  h1 "Setting up github ssh"
   clean_global_git_config
+
   setup_ssh_config
   setup_git_config
 
