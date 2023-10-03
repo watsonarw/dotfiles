@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. $(dirname $0)/../commons.sh
+. "$(dirname "$0")"/../commons.sh
 
 main() {
   h1 "Setting up private configs"

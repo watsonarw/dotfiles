@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. $(dirname $0)/../commons.sh
+. "$(dirname "$0")"/../commons.sh
 
 install_homebrew() {
   if ! command_exists brew; then

@@ -1,14 +1,14 @@
 #!/bin/bash
 
-. $(dirname $0)/../commons.sh
+. "$(dirname "$0")"/../commons.sh
 
-readonly ssh_dir="${HOME}/.ssh"
-readonly ssh_config_file="${ssh_dir}/config"
-readonly global_gitconfig_file="${HOME}/.gitconfig"
+readonly ssh_dir=${HOME}/.ssh
+readonly ssh_config_file=${ssh_dir}/config
+readonly global_gitconfig_file=${HOME}/.gitconfig
 
 check_ssh_config() {
   touch "${ssh_config_file}"
-  cat "${ssh_config_file}" | grep -E "Host\s+\*$"
+  grep -E "Host\s+\*$" "${ssh_config_file}"
 }
 
 setup_ssh_config() {
@@ -30,9 +30,7 @@ EOF
 }
 
 github_fail_message() {
-  printf "${RED}"
-  echo "Failed to connect to github. Please make sure 1password is setup."
-  printf "${RESET}"
+  red "Failed to connect to github. Please make sure 1password is setup."
 }
 
 test_github_ssh() {
@@ -54,11 +52,12 @@ validate_github_ssh() {
 
 clean_global_git_config() {
   echo "Cleaning global gitconfg"
-  echo "" > $global_gitconfig_file
+  echo "" > "${global_gitconfig_file}"
 }
 
 setup_git_config() {
-  local gitconfigs_dir="${HOME}/.gitconfigs"
+  local gitconfigs_dir=${HOME}/.gitconfigs
+
   h2 "Setting up git config"
   cat >> "${global_gitconfig_file}" <<EOF
 [include]

@@ -1,3 +1,5 @@
+#! /bin/bash
+
 setup_color() {
   # Only use colors if connected to a terminal
   if [ -t 1 ]; then
@@ -58,7 +60,8 @@ h3() {
 }
 
 green_tick() {
-  local message="${1-}"
+  local message=${1-}
+
   echo "${BOLD}${GREEN}✓${RESET} $message"
 }
 

@@ -14,6 +14,7 @@ brew "gnupg"
 brew "tree"
 brew "btop"
 brew "jq"
+brew "shellcheck"
 
 cask "rectangle"
 cask "keepingyouawake"
