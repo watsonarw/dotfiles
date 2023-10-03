@@ -14,6 +14,15 @@ execute_file() {
   /bin/bash "${filename}"
 }
 
+run_executable_files() {
+  local scripts_glob=$1
+  for SCRIPT in ${scripts_glob}; do
+    if [ -f $SCRIPT -a -x $SCRIPT ]; then
+      execute_file "$SCRIPT"
+    fi
+  done
+}
+
 setup_color() {
 	# Only use colors if connected to a terminal
 	if [ -t 1 ]; then

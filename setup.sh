@@ -26,15 +26,6 @@ EOF
   printf "${RESET}"
 }
 
-run_executable_files() {
-  local scripts_glob=$1
-  for SCRIPT in ${scripts_glob}; do
-    if [ -f $SCRIPT -a -x $SCRIPT ]; then
-      execute_file "$SCRIPT"
-    fi
-  done
-}
-
 main() {
   main_title
 
