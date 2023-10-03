@@ -62,7 +62,7 @@ setup_git_config() {
   h2 "Setting up git config"
   cat >> "${global_gitconfig_file}" <<EOF
 [include]
-  path = ${script_dir}/files/.gitconfig
+  path = ${root_dir}/files/.gitconfig
 EOF
   mkdir -p "${gitconfigs_dir}"
   touch "${gitconfigs_dir}/private"
@@ -70,7 +70,7 @@ EOF
 
 setup_global_gitignore() {
   h2 "Setting up global gitignore"
-  ln -sf "${script_dir}/files/.gitignore" "${HOME}/.gitignore"
+  ln -sf "${root_dir}/files/.gitignore" "${HOME}/.gitignore"
 }
 
 main() {

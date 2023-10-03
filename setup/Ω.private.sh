@@ -5,7 +5,7 @@
 main() {
   h1 "Setting up private configs"
 
-  run_executable_files "${script_dir}/private/**/setup.sh"
+  run_executable_files "${root_dir}/private/**/setup.sh"
 
   green_tick "Done setting up private configs"
 }

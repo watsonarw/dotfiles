@@ -1,8 +1,8 @@
 set -euo pipefail
 
 readonly script_name=$(basename "${0}")
-readonly script_dir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
-readonly current_script_dir=$( cd "$( dirname "${0}" )" && pwd )
+readonly root_dir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+readonly script_dir=$( cd "$( dirname "${0}" )" && pwd )
 
 command_exists () {
   type "$1" &> /dev/null ;

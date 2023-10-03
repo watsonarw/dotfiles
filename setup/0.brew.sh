@@ -12,7 +12,7 @@ install_homebrew() {
 
 link_global_brewfile() {
   h2 "Linking global Brewfile"
-  ln -sf "${script_dir}/Brewfile" "${HOME}/.Brewfile"
+  ln -sf "${root_dir}/Brewfile" "${HOME}/.Brewfile"
 }
 
 install_brew_deps () {

@@ -25,7 +25,7 @@ EOF
 main() {
   yellow "$(main_title)"
 
-  run_executable_files "${script_dir}/setup/*"
+  run_executable_files "${root_dir}/setup/*"
 
   green "$(done_message)"
 }

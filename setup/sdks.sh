@@ -2,7 +2,7 @@
 
 . $(dirname $0)/../commons.sh
 
-tool_versions_file="$(dirname ${script_dir}/..)/.tool-versions"
+tool_versions_file="$(dirname ${root_dir}/..)/.tool-versions"
 global_tool_versions_file="${HOME}/.tool-versions"
 
 main() {
