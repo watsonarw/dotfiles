@@ -87,4 +87,4 @@ defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
 defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
-echo_bold "${GREEN}Done. Note that some of these changes require a logout/restart to take effect.${RESET}"
+green_tick "Done. Note that some of these changes require a logout/restart to take effect."

@@ -23,7 +23,7 @@ setup_zsh_profile() {
 
 setup_sdks() {
   h2 "Setup SDKS"
-  echo_bold "Adding asdf plugins"
+  bold "Adding asdf plugins"
 
   local tool_versions_file="${current_script_dir}/.tool-versions"
 
@@ -31,10 +31,10 @@ setup_sdks() {
   cat $tool_versions_file | sed -E 's/([^ ]+) .*/\1/g' | xargs -n1 asdf plugin-add
   set -e
 
-  echo_bold "Installing tool versions"
+  bold "Installing tool versions"
   cat $tool_versions_file | xargs -n2 asdf install
 
-  echo_bold "Setting versions globally"
+  bold "Setting versions globally"
   cat $tool_versions_file | xargs -n2 asdf global
 
   asdf reshim

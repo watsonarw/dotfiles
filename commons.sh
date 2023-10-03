@@ -23,46 +23,13 @@ run_executable_files() {
   done
 }
 
-setup_color() {
-	# Only use colors if connected to a terminal
-	if [ -t 1 ]; then
-		RED=$(printf '\033[31m')
-		GREEN=$(printf '\033[32m')
-		YELLOW=$(printf '\033[33m')
-		BLUE=$(printf '\033[34m')
-		BOLD=$(printf '\033[1m')
-		RESET=$(printf '\033[m')
-	else
-		RED=""
-		GREEN=""
-		YELLOW=""
-		BLUE=""
-		BOLD=""
-		RESET=""
-	fi
+source_all_files() {
+  local scripts_glob=$1
+  for SCRIPT in ${scripts_glob}; do
+    if [ -f $SCRIPT ]; then
+      . "$SCRIPT"
+    fi
+  done
 }
 
-echo_bold() {
-  echo "${BOLD}$1${RESET}"
-}
-
-h1() {
-	echo ""
-  echo_bold "${BLUE}========== $1 ==========${RESET}"
-	echo ""
-}
-
-h2() {
-  echo_bold "----- $1 -----"
-}
-
-h3() {
-  echo_bold "*** $1 ***"
-}
-
-green_tick() {
-  local message="${1-}"
-  echo "${BOLD}${GREEN}✓${RESET} $message"
-}
-
-setup_color
+source_all_files "./commons/*"

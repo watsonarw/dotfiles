@@ -3,7 +3,6 @@
 . $(dirname $0)/commons.sh
 
 main_title() {
-  printf "${YELLOW}"
   cat <<EOF
 |---------------------------------|
 |                                 |
@@ -11,11 +10,9 @@ main_title() {
 |                                 |
 |---------------------------------|
 EOF
-  printf "${RESET}"
 }
 
 done_message() {
-  printf "${GREEN}"
   cat <<EOF
 |---------------------------------|
 |                                 |
@@ -23,15 +20,14 @@ done_message() {
 |                                 |
 |---------------------------------|
 EOF
-  printf "${RESET}"
 }
 
 main() {
-  main_title
+  yellow "$(main_title)"
 
   run_executable_files "${script_dir}/setup/*"
 
-  done_message
+  green "$(done_message)"
 }
 
 main
