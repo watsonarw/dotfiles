@@ -5,7 +5,8 @@
 setup_brew_dependencies() {
   h2 "Install brew dependencies"
   brew bundle --file="${script_dir}/Brewfile"
-}
+  include_in_global_brewfile "${script_dir}/Brewfile"
+  }
 
 setup_zsh_profile() {
   local zshrc_file=${script_dir}/.zshrc

@@ -10,14 +10,20 @@ install_homebrew() {
   fi
 }
 
+clear_global_brewfile() {
+  rm -rf "${HOME}/.Brewfile"
+}
+
 link_global_brewfile() {
   h2 "Linking global Brewfile"
-  ln -sf "${root_dir}/Brewfile" "${HOME}/.Brewfile"
+  clear_global_brewfile
+  include_in_global_brewfile "${root_dir}/Brewfile"
 }
 
 install_brew_deps () {
   h2 "Running brew bundle"
   brew bundle --global
+
 }
 
 main() {

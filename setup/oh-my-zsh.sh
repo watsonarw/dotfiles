@@ -14,6 +14,7 @@ main() {
 
   echo "Resetting .zshrc file"
   echo ". ${root_dir}/files/.zshrc" > "${HOME}/.zshrc"
+
   green_tick ".zshrc file reset"
 }
 
