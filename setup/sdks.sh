@@ -16,7 +16,7 @@ main() {
   < "$tool_versions_file" xargs -n2 asdf install
 
   bold "Setting versions globally"
-  ln -sf "$tool_versions_file" "$global_tool_versions_file"
+  < "$tool_versions_file" xargs -n2 asdf global
 
   bold "Reshim asdf"
   asdf reshim
