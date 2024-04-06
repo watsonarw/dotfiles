@@ -14,10 +14,19 @@ clear_global_brewfile() {
   rm -rf "${HOME}/.Brewfile"
 }
 
-link_global_brewfile() {
-  h2 "Linking global Brewfile"
+include_modular_brewfiles() {
+  local file_glob=$1
+
+  for FILE in $file_glob; do
+      include_in_global_brewfile "$FILE"
+  done
+}
+
+setup_global_brewfile() {
+  h2 "Setting up global Brewfile"
   clear_global_brewfile
   include_in_global_brewfile "${root_dir}/Brewfile"
+  include_modular_brewfiles "${root_dir}/brewfiles/*"
 }
 
 install_brew_deps () {
@@ -29,7 +38,7 @@ install_brew_deps () {
 main() {
   h1 "Running homebrew setup"
   install_homebrew
-  link_global_brewfile
+  setup_global_brewfile
   install_brew_deps
 
   green_tick "Homebrew setup complete"
