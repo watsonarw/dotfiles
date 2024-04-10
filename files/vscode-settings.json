@@ -9,15 +9,55 @@
   "files.autoSave": "onFocusChange",
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
-  "files.insertFinalNewline": true,
-  "editor.fontFamily": "Hack, Source Code Pro, Menlo, Monaco, 'Courier New', monospace",
-  "editor.rulers": [
-    120
-  ],
+  "editor.fontFamily": "Fira Code, Hack, Source Code Pro, Menlo, Monaco, 'Courier New', monospace",
+  "editor.rulers": [120],
   "editor.wordWrapColumn": 120,
-  "editor.wordWrap": "bounded",
   "editor.fontSize": 14,
   "terminal.integrated.fontSize": 14,
   "extensions.ignoreRecommendations": true,
-  "editor.bracketPairColorization.enabled": true
+  "editor.bracketPairColorization.enabled": true,
+  "workbench.startupEditor": "none",
+  "editor.stablePeek": true,
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "launch": {
+    "configurations": [],
+    "compounds": []
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "svg.preview.mode": "img",
+  "gitlens.views.branches.branches.layout": "list",
+  "terminal.integrated.scrollback": 100000,
+  "json.schemas": [],
+  "editor.stickyScroll.enabled": true,
+  "shellformat.useEditorConfig": true,
+  "editorconfig.generateAuto": false,
+  "[dotenv]": {},
+  "editor.wordWrap": "wordWrapColumn",
+  "markdown-preview-github-styles.colorTheme": "light",
+  "markdown-mermaid.darkModeTheme": "base",
+  "markdown-mermaid.lightModeTheme": "base",
+  "notebook.stickyScroll.enabled": true,
+  "workbench.editor.empty.hint": "hidden"
 }
