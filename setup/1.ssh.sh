@@ -4,7 +4,6 @@
 
 readonly ssh_dir=${HOME}/.ssh
 readonly ssh_config_file=${ssh_dir}/config
-readonly global_gitconfig_file=${HOME}/.gitconfig
 
 check_ssh_config() {
   grep -E "Host\s+\*$" "${ssh_config_file}"

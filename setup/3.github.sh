@@ -2,8 +2,6 @@
 
 . "$(dirname "$0")"/../commons.sh
 
-readonly global_gitconfig_file=${HOME}/.gitconfig
-
 github_fail_message() {
   red "Failed to connect to github. Please make sure 1password is setup."
 }

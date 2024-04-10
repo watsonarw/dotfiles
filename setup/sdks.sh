@@ -3,7 +3,6 @@
 . "$(dirname "$0")"/../commons.sh
 
 tool_versions_file=${root_dir}/.tool-versions
-global_tool_versions_file=${HOME}/.tool-versions
 
 main() {
   h1 "Installing sdks with asdf"
