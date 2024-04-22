@@ -2,25 +2,22 @@
 
 . "$(dirname "$0")"/../commons.sh
 
-tool_versions_file=${root_dir}/.tool-versions
+mise_config_file="${root_dir}/.config/mise/config.toml"
+root_mise_config="${HOME}/.config/mise/config.toml"
 
 main() {
-  h1 "Installing sdks with asdf"
-  bold "Adding asdf plugins"
-  set +e
-  < "$tool_versions_file" sed -E 's/([^ ]+) .*/\1/g' | xargs -n1 asdf plugin-add
-  set -e
+  h1 "Installing sdks"
+
+  bold "Resetting global mise config"
+  cp "${mise_config_file}" "${root_mise_config}"
 
   bold "Installing tool versions"
-  < "$tool_versions_file" xargs -n2 asdf install
+  mise install -y
 
-  bold "Setting versions globally"
-  < "$tool_versions_file" xargs -n2 asdf global
+  bold "Cleaning up old versions"
+  mise prune -y
 
-  bold "Reshim asdf"
-  asdf reshim
-
-  green_tick "Installed SDKs from $tool_versions_file"
+  green_tick "Installed SDKs from ${mise_config_file}"
 }
 
 main

@@ -1,5 +1,7 @@
 tap "homebrew/bundle"
 
+brew "mise"
+
 brew "gcc"
 brew "libressl"
 brew "openssh"
@@ -9,7 +11,6 @@ brew "coreutils"
 brew "tldr"
 brew "zsh"
 brew "z"
-brew "asdf"
 brew "gnupg"
 brew "tree"
 brew "btop"

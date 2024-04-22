@@ -14,11 +14,15 @@ clear_global_brewfile() {
   rm -rf "${HOME}/.Brewfile"
 }
 
+include_in_global_brewfile() {
+  echo "instance_eval(File.read('$1'))" >>"${HOME}/.Brewfile"
+}
+
 include_modular_brewfiles() {
   local file_glob=$1
 
   for FILE in $file_glob; do
-      include_in_global_brewfile "$FILE"
+    include_in_global_brewfile "$FILE"
   done
 }
 
@@ -27,9 +31,10 @@ setup_global_brewfile() {
   clear_global_brewfile
   include_in_global_brewfile "${root_dir}/Brewfile"
   include_modular_brewfiles "${root_dir}/brewfiles/*"
+  include_modular_brewfiles "${root_dir}/modules/**/Brewfile"
 }
 
-install_brew_deps () {
+install_brew_deps() {
   h2 "Running brew bundle"
   brew bundle --global
 
