@@ -40,6 +40,7 @@ vscode "espresso3389.unixtime-converter"
 # Languages / Filetypes
 vscode "ms-azuretools.vscode-docker"
 vscode "dbaeumer.vscode-eslint"
+vscode "esbenp.prettier-vscode"
 vscode "foxundermoon.shell-format"
 vscode "jock.svg"
 vscode "mechatroner.rainbow-csv"
