@@ -7,6 +7,11 @@ install_homebrew() {
     h2 "Installing Homebrew"
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
     green_tick "Installed Homebrew"
+
+    h2 "Activating homebrew"
+    . <(/usr/local/bin/brew shellenv)
+  else
+    brew upgrade
   fi
 }
 

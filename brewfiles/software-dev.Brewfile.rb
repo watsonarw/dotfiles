@@ -3,13 +3,17 @@ cask "bruno"
 brew "colima"
 brew "docker"
 brew "docker-compose"
+brew "z"
+brew "tldr"
+brew "tree"
+brew "btop"
+brew "jq"
+brew "shellcheck"
 
 tap "homebrew/cask-fonts"
-brew "svn"
 cask "font-fira-code"
 cask "font-hack"
 
-brew "mas"
 mas "XCode", id: 497799835
 
 ##### VS Code + Plugins
