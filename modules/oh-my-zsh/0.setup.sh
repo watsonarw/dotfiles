@@ -2,7 +2,7 @@
 
 . "$(dirname "$0")/../../commons.sh"
 
-main() {
+install_omz() {
   local ZSH=${HOME}/.oh-my-zsh
   h2 "Setting up ohmyzsh"
 
@@ -11,6 +11,14 @@ main() {
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     green_tick "Installed ohmyzsh"
   fi
+}
+
+main() {
+  h1 "Setting up ${script_dir}"
+
+  install_omz
+
+  green_tick "Done"
 }
 
 main

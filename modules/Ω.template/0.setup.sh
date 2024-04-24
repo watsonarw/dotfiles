@@ -3,7 +3,9 @@
 . "$(dirname "$0")/../../commons.sh"
 
 main() {
-  h2 "Setting up ${script_dir}"
+  h1 "Setting up ${script_dir}"
+
+  green_tick "Done"
 }
 
 main

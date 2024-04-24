@@ -14,6 +14,7 @@ EOF
 
 done_message() {
   cat <<EOF
+
 |---------------------------------|
 |                                 |
 |  Successfully completed setup   |

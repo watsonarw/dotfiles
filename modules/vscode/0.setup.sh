@@ -3,6 +3,7 @@
 . "$(dirname "$0")/../../commons.sh"
 
 link_settings_json() {
+  h2 "Linking vscode settings"
   local vscode_user_dir="${HOME}/Library/Application Support/Code/User"
   local vscode_settings_json="${vscode_user_dir}/settings.json"
   local settings_json_file="${script_dir}/vscode-settings.json"
@@ -11,11 +12,11 @@ link_settings_json() {
 }
 
 main() {
-  h1 "Linking vscode settings"
+  h1 "Setting up ${script_dir}"
 
   link_settings_json
 
-  green_tick "Linked vscode settings"
+  green_tick "Done"
 }
 
 main

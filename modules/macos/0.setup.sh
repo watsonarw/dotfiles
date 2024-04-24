@@ -101,8 +101,8 @@ macos_trackpad_setup() {
   defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 }
 
-main() {
-  h1 "Setting up MacOS defaults"
+setup_defaults() {
+  h2 "Setting up MacOS defaults"
 
   macos_general_setup
   macos_finder_setup
@@ -111,7 +111,15 @@ main() {
   macos_privacy_setup
   macos_trackpad_setup
 
-  green_tick "Done. Note that some of these changes require a logout/restart to take effect."
+  bold "$(yellow "Note that some of these changes require a logout/restart to take effect.")"
+}
+
+main() {
+  h1 "Setting up ${script_dir}"
+
+  setup_defaults
+
+  green_tick "Done"
 }
 
 main

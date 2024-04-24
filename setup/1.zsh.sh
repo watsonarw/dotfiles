@@ -25,7 +25,7 @@ include_modular_zshrcs() {
 }
 
 main() {
-  echo "Resetting .zshrc file"
+  h1 "Resetting .zshrc file"
 
   clear_global_zshrc
   include_modular_zshrcs "${root_dir}/modules/**/.zshrc"

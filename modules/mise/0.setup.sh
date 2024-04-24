@@ -26,14 +26,14 @@ cleanup_old_versions() {
 }
 
 main() {
-  h1 "Installing mise and tools"
+  h1 "Setting up ${script_dir}"
 
   activate_mise
   reset_global_mise_config
   install_tool_versions
   cleanup_old_versions
 
-  green_tick "Installed SDKs from ${mise_config_file}"
+  green_tick "Done"
 }
 
 main

@@ -15,16 +15,17 @@ pkgs=(
 )
 
 install_packages() {
+  h2 "Installing packages with pkgx"
   bold "Installing ${pkgs[*]}"
   pkgx install "${pkgs[@]}"
 }
 
 main() {
-  h1 "Installing packages with pkgx"
+  h1 "Setting up ${script_dir}"
 
   install_packages
 
-  green_tick "Installed pkgx"
+  green_tick "Done"
 }
 
 main
