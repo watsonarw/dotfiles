@@ -8,6 +8,9 @@ root_mise_config="${HOME}/.config/mise/config.toml"
 main() {
   h1 "Installing sdks"
 
+  bold "Activate mise"
+  . <(mise activate zsh)
+
   bold "Resetting global mise config"
   cp "${mise_config_file}" "${root_mise_config}"
 

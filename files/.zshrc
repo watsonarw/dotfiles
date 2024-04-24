@@ -10,4 +10,5 @@ plugins=(git z brew)
 
 export PATH="/usr/local/sbin:$PATH"
 
-eval "$(mise activate zsh)"
+. <(mise activate zsh)
+. <(pkgx --shellcode) #docs.pkgx.sh/shellcode

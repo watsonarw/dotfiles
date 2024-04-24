@@ -1,15 +1,5 @@
 cask "bruno"
 
-brew "colima"
-brew "docker"
-brew "docker-compose"
-brew "z"
-brew "tldr"
-brew "tree"
-brew "btop"
-brew "jq"
-brew "shellcheck"
-
 tap "homebrew/cask-fonts"
 cask "font-fira-code"
 cask "font-hack"
