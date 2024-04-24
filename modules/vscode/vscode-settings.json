@@ -54,7 +54,7 @@
   "json.schemas": [],
   "editor.stickyScroll.enabled": true,
   "shellformat.useEditorConfig": true,
-  "editorconfig.generateAuto": false,
+  "editorconfig.generateAuto": true,
   "[dotenv]": {},
   "editor.wordWrap": "wordWrapColumn",
   "markdown-preview-github-styles.colorTheme": "light",
