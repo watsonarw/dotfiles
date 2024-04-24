@@ -18,7 +18,7 @@ setup_1password_ssh_agent() {
   mkdir -p ~/.1password && ln -sf ~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock ~/.1password/agent.sock
 
   if [ -z "$(check_ssh_config)" ]; then
-    cat >> "${ssh_config_file}" <<EOF
+    cat >>"${ssh_config_file}" <<EOF
 
 Host *
   IdentityAgent "~/.1password/agent.sock"

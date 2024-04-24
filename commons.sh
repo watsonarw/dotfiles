@@ -5,15 +5,15 @@ set -euo pipefail
 script_name=$(basename "${0}")
 readonly script_name
 export script_name
-root_dir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+root_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 readonly root_dir
 export root_dir
-script_dir=$( cd "$( dirname "${0}" )" && pwd )
+script_dir=$(cd "$(dirname "${0}")" && pwd)
 readonly script_dir
 export script_dir
 
-command_exists () {
-  type "$1" &> /dev/null ;
+command_exists() {
+  type "$1" &>/dev/null
 }
 
 execute_file() {

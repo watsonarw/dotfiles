@@ -6,14 +6,14 @@ readonly global_gitconfig_file=${HOME}/.gitconfig
 
 clean_global_git_config() {
   echo "Cleaning global gitconfg"
-  echo "" > "${global_gitconfig_file}"
+  echo "" >"${global_gitconfig_file}"
 }
 
 setup_git_config() {
   local gitconfigs_dir=${HOME}/.gitconfigs
 
   h2 "Setting up git config"
-  cat >> "${global_gitconfig_file}" <<EOF
+  cat >>"${global_gitconfig_file}" <<EOF
 [include]
   path = ${root_dir}/files/.gitconfig
 EOF

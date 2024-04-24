@@ -21,19 +21,19 @@ setup_color() {
   fi
 }
 
-red () {
+red() {
   echo "${RED}$1${RESET}"
 }
 
-green () {
+green() {
   echo "${GREEN}$1${RESET}"
 }
 
-yellow () {
+yellow() {
   echo "${YELLOW}$1${RESET}"
 }
 
-blue () {
+blue() {
   echo "${BLUE}$1${RESET}"
 }
 
