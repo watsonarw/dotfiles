@@ -1,11 +1,3 @@
-cask "bruno"
-
-tap "homebrew/cask-fonts"
-cask "font-fira-code"
-cask "font-hack"
-
-mas "XCode", id: 497799835
-
 ##### VS Code + Plugins
 cask "visual-studio-code"
 

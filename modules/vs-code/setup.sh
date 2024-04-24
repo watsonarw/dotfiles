@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. "$(dirname "$0")"/../commons.sh
+. "$(dirname "$0")/../../commons.sh"
 
 link_settings_json() {
   local vscode_user_dir="${HOME}/Library/Application Support/Code/User"
@@ -9,7 +9,6 @@ link_settings_json() {
 
   ln -sf "$settings_json_file" "$vscode_settings_json"
 }
-
 
 main() {
   h1 "Linking vscode settings"
