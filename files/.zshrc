@@ -9,6 +9,7 @@ plugins=(git z brew)
 . $ZSH/oh-my-zsh.sh
 
 export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
 . <(mise activate zsh)
 . <(pkgx --shellcode) #docs.pkgx.sh/shellcode
