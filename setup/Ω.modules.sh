@@ -2,8 +2,16 @@
 
 . "$(dirname "$0")"/../commons.sh
 
+message() {
+  cat <<EOF
+|---------------------------------|
+|       Setting up Modules        |
+|---------------------------------|
+EOF
+}
+
 main() {
-  h1 "Setting up modules"
+  yellow "$(message)"
 
   run_executable_files "${root_dir}/modules/**/*.sh"
 
