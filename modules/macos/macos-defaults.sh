@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. "$(dirname "$0")"/../commons.sh
+. "$(dirname "$0")/../../commons.sh"
 
 # Sets reasonable macOS defaults.
 #

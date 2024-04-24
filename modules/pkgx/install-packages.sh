@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. "$(dirname "$0")"/../commons.sh
+. "$(dirname "$0")"/../../commons.sh
 
 pkgs=(
   github.com/abiosoft/colima
@@ -14,16 +14,15 @@ pkgs=(
   shellcheck.net
 )
 
+install_packages() {
+  bold "Installing ${pkgs[*]}"
+  pkgx install "${pkgs[@]}"
+}
+
 main() {
   h1 "Installing packages with pkgx"
 
-  if ! command_exists x; then
-    bold "Activating pkgx"
-    . <(pkgx --shellcode)
-  fi
-
-  bold "Installing ${pkgs[*]} with pkgx"
-  pkgx install "${pkgs[@]}"
+  install_packages
 
   green_tick "Installed pkgx"
 }

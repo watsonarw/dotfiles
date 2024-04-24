@@ -3,7 +3,7 @@
 . "$(dirname "$0")/../../commons.sh"
 
 main() {
-  echo "Setting up ${script_dir}"
+  h2 "Setting up ${script_dir}"
 }
 
 main

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. "$(dirname "$0")"/../commons.sh
+. "$(dirname "$0")"/../../commons.sh
 
 readonly ssh_dir=${HOME}/.ssh
 readonly ssh_config_file=${ssh_dir}/config
@@ -24,7 +24,7 @@ Host *
   IdentityAgent "~/.1password/agent.sock"
 
 EOF
-  green_tick "set config is setup"
+    green_tick "set config is setup"
   else
     echo "ssh config is already set up to use 1password agent"
   fi

@@ -1,0 +1,2 @@
+tap "pkgxdev/made"
+brew "pkgxdev/made/pkgx"

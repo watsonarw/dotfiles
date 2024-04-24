@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. "$(dirname "$0")"/../commons.sh
+. "$(dirname "$0")"/../../commons.sh
 
 github_fail_message() {
   red "Failed to connect to github. Please make sure 1password is setup."
@@ -15,7 +15,7 @@ validate_github_ssh() {
   set +e
   test_github_ssh
   if [ $? -eq 1 ]; then
-  green_tick "Connection to github successful"
+    green_tick "Connection to github successful"
   else
     github_fail_message
     exit 1

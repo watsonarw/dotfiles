@@ -40,7 +40,7 @@ setup_global_brewfile() {
 
 install_brew_deps() {
   h2 "Running brew bundle"
-  brew bundle --global
+  brew bundle --global --no-lock
 
 }
 
