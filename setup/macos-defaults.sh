@@ -12,6 +12,8 @@
 # General                                                                     #
 ###############################################################################
 set_dark_mode() {
+  defaults write ~/Library/Preferences/.GlobalPreferences.plist AppleInterfaceTheme -string "Dark"
+  defaults write ~/Library/Preferences/.GlobalPreferences.plist AppleInterfaceStyle -string "Dark"
   osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to true'
 }
 
@@ -74,6 +76,7 @@ macos_dock_setup() {
   echo "Set the Finder prefs for showing a few different volumes on the Desktop."
   defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
   defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
+  killall Dock
 }
 
 ###############################################################################
