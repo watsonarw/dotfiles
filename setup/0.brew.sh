@@ -20,7 +20,9 @@ clear_global_brewfile() {
 }
 
 include_in_global_brewfile() {
-  echo "instance_eval(File.read('$1'))" >>"${HOME}/.Brewfile"
+  local brewfile=$1
+  echo "Including ${brewfile}"
+  echo "instance_eval(File.read('$brewfile'))" >>"${HOME}/.Brewfile"
 }
 
 include_modular_brewfiles() {
@@ -34,7 +36,6 @@ include_modular_brewfiles() {
 setup_global_brewfile() {
   h2 "Setting up global Brewfile"
   clear_global_brewfile
-  include_in_global_brewfile "${root_dir}/Brewfile"
   include_modular_brewfiles "${root_dir}/modules/**/Brewfile"
 }
 
