@@ -13,4 +13,3 @@ brew "svn" # Needed for some fonts
 cask "bruno"
 
 cask "firefox"
-cask "brave-browser"

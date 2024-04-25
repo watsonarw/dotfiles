@@ -5,9 +5,3 @@ cask "blender"
 cask "inkscape"
 
 cask "nordvpn"
-
-cask "obs"
-cask "farrago"
-
-tap "homebrew/cask-fonts"
-cask "font-playfair-display"
