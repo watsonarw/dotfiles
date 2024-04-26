@@ -63,5 +63,6 @@
   "notebook.stickyScroll.enabled": true,
   "workbench.editor.empty.hint": "hidden",
   "prettier.configPath": ".prettierrc",
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "workbench.colorTheme": "Default Dark Modern"
 }
