@@ -17,14 +17,14 @@ cd ~/.dotfiles
 
 * [brew]
 * Up to date versions of some "core" utilities
-  * See [Brewfile](./Brewfile) to find out which
+  * See [Brewfile](./modules/0.core/Brewfile) to find out which
 * A bunch of MacOS apps that I use all the time
   * Via [Brew cask](https://github.com/Homebrew/homebrew-cask) and [Brew bundle](https://github.com/Homebrew/homebrew-bundle)
 
 * [mise] for managing tool versions/SDKs
-* [pkgx] for running packages that
+* [pkgx] for running packages that aren't installed
 * 1password SSH agent
-* Git configs
+* Git config
 * [oh my zsh](https://ohmyz.sh/)
 * MacOS dark mode, menu bar, keyboard and some other UX preferences
 * [Visual Studio Code](https://code.visualstudio.com/), default plugins and settings
