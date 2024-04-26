@@ -3,16 +3,18 @@
 . "$(dirname "$0")"/../../commons.sh
 
 mise_config_file="${root_dir}/.config/mise/config.toml"
-root_mise_config="${HOME}/.config/mise/config.toml"
+global_mise_config="${HOME}/.config/mise/config.toml"
 
 activate_mise() {
   bold "Activate mise"
-  eval $(mise activate zsh)
+  # Activate for bash instead of zsh, only for the script
+  eval "$(mise activate bash)"
 }
 
 reset_global_mise_config() {
   bold "Resetting global mise config"
-  cp "${mise_config_file}" "${root_mise_config}"
+  mkdir -p "$(dirname "$global_mise_config")"
+  cp "${mise_config_file}" "${global_mise_config}"
 }
 
 install_tool_versions() {

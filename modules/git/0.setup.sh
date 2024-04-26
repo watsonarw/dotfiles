@@ -8,6 +8,7 @@ readonly gitconfig_dir="${root_dir}/.config/git"
 link_global_config() {
   h2 "Setting up global git config and gitignore"
   rm -rf "${global_gitconfig_dir}"
+  mkdir -p "$(dirname "$global_gitconfig_dir")"
   ln -sF "${gitconfig_dir}" "${global_gitconfig_dir}"
 }
 
