@@ -1,44 +1,5 @@
 {
-  "telemetry.telemetryLevel": "off",
-  "workbench.iconTheme": "material-icon-theme",
-  "editor.renderWhitespace": "all",
-  "editor.formatOnPaste": true,
-  "editor.scrollBeyondLastLine": false,
-  "editor.tabSize": 2,
-  "explorer.openEditors.visible": 0,
-  "files.autoSave": "onFocusChange",
-  "files.trimFinalNewlines": true,
-  "files.trimTrailingWhitespace": true,
-  "editor.fontFamily": "Fira Code, Hack, Source Code Pro, Menlo, Monaco, 'Courier New', monospace",
-  "editor.rulers": [
-    120
-  ],
-  "editor.wordWrapColumn": 120,
-  "editor.fontSize": 14,
-  "terminal.integrated.fontSize": 14,
-  "extensions.ignoreRecommendations": true,
-  "editor.bracketPairColorization.enabled": true,
-  "workbench.startupEditor": "none",
-  "editor.stablePeek": true,
-  "[jsonc]": {
-    "editor.defaultFormatter": "vscode.json-language-features"
-  },
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "editor.quickSuggestions": {
-    "strings": true
-  },
-  "launch": {
-    "configurations": [],
-    "compounds": []
-  },
-  "[markdown]": {
-    "editor.defaultFormatter": "yzhang.markdown-all-in-one"
-  },
+  "[dotenv]": {},
   "[html]": {
     "editor.defaultFormatter": "vscode.html-language-features"
   },
@@ -48,21 +9,60 @@
   "[json]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
-  "svg.preview.mode": "img",
-  "gitlens.views.branches.branches.layout": "list",
-  "terminal.integrated.scrollback": 100000,
-  "json.schemas": [],
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.bracketPairColorization.enabled": true,
+  "editor.fontFamily": "Fira Code, Hack, Source Code Pro, Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontSize": 14,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "editor.renderWhitespace": "all",
+  "editor.rulers": [
+    120
+  ],
+  "editor.scrollBeyondLastLine": false,
+  "editor.stablePeek": true,
   "editor.stickyScroll.enabled": true,
-  "shellformat.useEditorConfig": true,
-  "editorconfig.generateAuto": true,
-  "[dotenv]": {},
+  "editor.tabSize": 2,
   "editor.wordWrap": "wordWrapColumn",
-  "markdown-preview-github-styles.colorTheme": "light",
+  "editor.wordWrapColumn": 120,
+  "editorconfig.generateAuto": true,
+  "explorer.openEditors.visible": 0,
+  "extensions.ignoreRecommendations": true,
+  "files.autoSave": "onFocusChange",
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "gitlens.views.branches.branches.layout": "list",
+  "json.schemas": [],
+  "launch": {
+    "compounds": [],
+    "configurations": []
+  },
   "markdown-mermaid.darkModeTheme": "base",
   "markdown-mermaid.lightModeTheme": "base",
+  "markdown-preview-github-styles.colorTheme": "light",
   "notebook.stickyScroll.enabled": true,
-  "workbench.editor.empty.hint": "hidden",
   "prettier.configPath": ".prettierrc",
-  "editor.formatOnSave": true,
-  "workbench.colorTheme": "Default Dark Modern"
+  "shellformat.useEditorConfig": true,
+  "svg.preview.mode": "img",
+  "telemetry.telemetryLevel": "off",
+  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.scrollback": 100000,
+  "workbench.colorTheme": "Default Dark Modern",
+  "workbench.editor.empty.hint": "hidden",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.startupEditor": "none"
 }
