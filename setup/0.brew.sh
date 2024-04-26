@@ -14,21 +14,29 @@ brew_location() {
     _brew_location="/home/linuxbrew/.linuxbrew/bin/brew"
   elif [[ -x "$HOME/.linuxbrew/bin/brew" ]]; then
     _brew_location="$HOME/.linuxbrew/bin/brew"
-  else
-    return
   fi
 
   echo $_brew_location
 }
 
 install_homebrew() {
+  bold "Checking for active brew installation"
   if ! command_exists brew; then
-    h2 "Installing Homebrew"
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-    green_tick "Installed Homebrew"
+    echo "Brew is not active"
+    bold "Checking for existing brew installation"
+
+    if [ -z "$(brew_location)" ]; then
+      h2 "Installing Homebrew"
+      /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+      green_tick "Installed Homebrew"
+    else
+      echo "Brew is installed at $(brew_location), skipping install..."
+    fi
 
     h2 "Activating homebrew"
     eval $($(brew_location) shellenv)
+  else
+    echo "Brew is installed and activated"
   fi
 }
 
