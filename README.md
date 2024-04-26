@@ -7,6 +7,7 @@ The most over-engineered shell scripts I've ever written, AKA dotfiles for setti
 Note: This has only been built to work on MacOS, I might add other platforms when I need them
 
 ```sh
+xcode-select --install
 git clone https://github.com/watsonarw/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 ./setup.sh
