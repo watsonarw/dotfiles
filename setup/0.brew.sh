@@ -28,9 +28,7 @@ install_homebrew() {
     green_tick "Installed Homebrew"
 
     h2 "Activating homebrew"
-    . <($(brew_location) shellenv)
-  else
-    brew upgrade
+    eval $($(brew_location) shellenv)
   fi
 }
 

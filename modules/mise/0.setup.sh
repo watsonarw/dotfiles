@@ -7,7 +7,7 @@ root_mise_config="${HOME}/.config/mise/config.toml"
 
 activate_mise() {
   bold "Activate mise"
-  . <(mise activate zsh)
+  eval $(mise activate zsh)
 }
 
 reset_global_mise_config() {
