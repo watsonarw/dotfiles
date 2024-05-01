@@ -6,7 +6,6 @@ pkgs=(
   github.com/abiosoft/colima
   docker.com/cli
   docker.com/compose
-  github.com/rupa/z
   tldr.sh
   gitlab.com/OldManProgrammer/unix-tree
   github.com/aristocratos/btop

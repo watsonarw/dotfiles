@@ -4,7 +4,7 @@ ZSH_THEME="robbyrussell"
 
 DISABLE_UPDATE_PROMPT="true"
 
-plugins=(git z brew)
+plugins=(git brew)
 
 . $ZSH/oh-my-zsh.sh
 
