@@ -17,7 +17,7 @@ pkgs=(
 install_packages() {
   h2 "Installing packages with pkgx"
   bold "Installing ${pkgs[*]}"
-  pkgx install "${pkgs[@]}"
+  ${brew_bin_dir}/pkgx install "${pkgs[@]}"
 }
 
 main() {

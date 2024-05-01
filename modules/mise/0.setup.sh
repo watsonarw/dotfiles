@@ -8,7 +8,7 @@ global_mise_config="${HOME}/.config/mise/config.toml"
 activate_mise() {
   bold "Activate mise"
   # Activate for bash instead of zsh, only for the script
-  eval "$(mise activate bash)"
+  eval "$(${brew_bin_dir}/mise activate bash)"
 }
 
 reset_global_mise_config() {

@@ -2,39 +2,22 @@
 
 . "$(dirname "$0")"/../commons.sh
 
-brew_location() {
-  # Adapted from https://github.com/ohmyzsh/ohmyzsh/blob/HEAD/plugins/brew/brew.plugin.zsh
-  local _brew_location=''
-
-  if [[ -x /opt/homebrew/bin/brew ]]; then
-    _brew_location="/opt/homebrew/bin/brew"
-  elif [[ -x /usr/local/bin/brew ]]; then
-    _brew_location="/usr/local/bin/brew"
-  elif [[ -x /home/linuxbrew/.linuxbrew/bin/brew ]]; then
-    _brew_location="/home/linuxbrew/.linuxbrew/bin/brew"
-  elif [[ -x "$HOME/.linuxbrew/bin/brew" ]]; then
-    _brew_location="$HOME/.linuxbrew/bin/brew"
-  fi
-
-  echo $_brew_location
-}
-
 install_homebrew() {
   bold "Checking for active brew installation"
   if ! command_exists brew; then
     echo "Brew is not active"
     bold "Checking for existing brew installation"
 
-    if [ -z "$(brew_location)" ]; then
+    if [ -z "${brew_bin_dir}/brew" ]; then
       h2 "Installing Homebrew"
       /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
       green_tick "Installed Homebrew"
     else
-      echo "Brew is installed at $(brew_location), skipping install..."
+      echo "Brew is installed at ${brew_bin_dir}/brew, skipping install..."
     fi
 
     h2 "Activating homebrew"
-    eval $($(brew_location) shellenv)
+    eval $(${brew_bin_dir}/brew shellenv)
   else
     echo "Brew is installed and activated"
   fi
