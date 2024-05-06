@@ -8,7 +8,7 @@ install_homebrew() {
     echo "Brew is not active"
     bold "Checking for existing brew installation"
 
-    if [ -z "${brew_bin_dir}/brew" ]; then
+    if [ -z "$(brew_location)" ]; then
       h2 "Installing Homebrew"
       /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
       green_tick "Installed Homebrew"
