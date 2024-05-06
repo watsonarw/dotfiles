@@ -20,14 +20,19 @@ set_dark_mode() {
 macos_general_setup() {
   set_dark_mode
 
-  echo "Show Battery Percentage on the menu bar"
-  defaults write com.apple.menuextra.battery ShowPercent -string "YES"
+  # This no longer works as of Big Sur
+  # echo "Show Battery Percentage on the menu bar"
+  # defaults write com.apple.menuextra.battery ShowPercent -string "YES"
 
   echo "Disable auto-correct spelling automatically"
   defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
-  echo "Show seconds and date in menu bar"
-  defaults write com.apple.menuextra.clock "DateFormat" "d MMM  hh:mm:ss"
+  # This no longer works as of Big Sur
+  # echo "Show seconds and date in menu bar"
+  # defaults write com.apple.menuextra.clock "DateFormat" "EEE d MMM HH:mm:ss"
+
+  echo "Show bluetooth status in menubar"
+  defaults write com.apple.controlcenter "NSStatusItem Visible Bluetooth" -bool true
 
   echo "Use AirDrop over every interface."
   defaults write com.apple.NetworkBrowser BrowseAllInterfaces 1
@@ -72,11 +77,11 @@ macos_dock_setup() {
 
   echo "remove all icons from the dock"
   defaults write com.apple.dock persistent-apps -array
+  defaults write com.apple.dock show-recents -bool false
 
   echo "Set the Finder prefs for showing a few different volumes on the Desktop."
   defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
   defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
-  killall Dock
 }
 
 ###############################################################################
@@ -110,6 +115,10 @@ setup_defaults() {
   macos_dock_setup
   macos_privacy_setup
   macos_trackpad_setup
+
+  killall Dock
+  killall SystemUIServer
+  killall Finder
 
   bold "$(yellow "Note that some of these changes require a logout/restart to take effect.")"
 }
