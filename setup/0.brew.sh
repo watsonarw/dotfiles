@@ -13,11 +13,11 @@ install_homebrew() {
       /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
       green_tick "Installed Homebrew"
     else
-      echo "Brew is installed at ${brew_bin_dir}/brew, skipping install..."
+      echo "Brew is installed at $(brew_location), skipping install..."
     fi
 
     h2 "Activating homebrew"
-    eval $(${brew_bin_dir}/brew shellenv)
+    eval $($(brew_location) shellenv)
   else
     echo "Brew is installed and activated"
   fi
