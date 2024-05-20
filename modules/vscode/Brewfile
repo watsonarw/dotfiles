@@ -7,6 +7,9 @@ vscode "mikestead.dotenv"
 vscode "ms-vsliveshare.vsliveshare"
 vscode "pkief.material-icon-theme"
 vscode "eamodio.gitlens"
+vscode "streetsidesoftware.code-spell-checker"
+vscode "streetsidesoftware.code-spell-checker-australian-english"
+
 
 # File utils
 vscode "patbenatar.advanced-new-file"
