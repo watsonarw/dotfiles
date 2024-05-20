@@ -13,7 +13,7 @@ EOF
 main() {
   yellow "$(message)"
 
-  run_executable_files "${root_dir}/modules/**/*.sh"
+  run_executable_files "$(enabled_module_files '*.sh')"
 
   green_tick "Done setting up modules"
 }

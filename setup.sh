@@ -26,6 +26,8 @@ EOF
 main() {
   yellow "$(main_title)"
 
+  setup_module_selection
+
   run_executable_files "${root_dir}/setup/*"
 
   green "$(done_message)"
