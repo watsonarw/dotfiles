@@ -2,7 +2,4 @@ Brewfile.lock.json
 private/
 private-*
 
-# Private mise config (environment variables) just for this project.
-.mise.toml
-
 state/

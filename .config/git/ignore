@@ -16,3 +16,6 @@
 # VSCode files
 /.vs/
 .VSCodeCounter
+
+# Private Mise config
+.mise.local.toml

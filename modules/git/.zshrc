@@ -1,4 +1,7 @@
 set_git_email() {
-  mise set GIT_AUTHOR_EMAIL="$1"
-  mise set GIT_COMMITTER_EMAIL="$1"
+  local email=$1
+  local mise_file=${2:-.mise.local.toml}
+
+  mise set --file $mise_file GIT_AUTHOR_EMAIL="$1"
+  mise set --file $mise_file GIT_COMMITTER_EMAIL="$1"
 }
