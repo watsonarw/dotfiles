@@ -37,16 +37,14 @@ Then run:
 ## How it works
 
 * A bunch of shell scripts
-* [brew], [mise] and [pkgx]
+* [brew], [mise]
 
 
-## [brew]. [mise], or [pkgx] - When to use each?
+## [brew]. [mise] - When to use each?
 
 - MacOS apps are installed with [brew] cask
-- "Core" packages, particularly if they're part of the shell (e.g. zsh, git coreutils) installed via [brew]
+- "Core" packages, particularly if they're part of the shell (e.g. zsh, git coreutils, docker) installed via [brew]
 - SDKs, tool versions etc, particularly those specific to a project should be installed with [mise]
-- Packages/tools that are run to acheive a specific task (e.g. jq, tree, docker) via [pkgx]
 
 [mise]: https://mise.jdx.dev/
-[pkgx]: https://pkgx.sh/
 [brew]: https://brew.sh/

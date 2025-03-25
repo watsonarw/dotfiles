@@ -1,0 +1,7 @@
+brew "tldr"
+brew "tree"
+brew "jq"
+brew "btop"
+
+tap "pkgxdev/made"
+brew "pkgxdev/made/pkgx"
