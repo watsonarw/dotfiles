@@ -1,5 +1,3 @@
-tap "homebrew/bundle"
-
 # Newer versions of core utilities that aren't bundled with MacOS
 brew "gcc"
 brew "libressl"
