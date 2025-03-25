@@ -20,16 +20,16 @@ set_dark_mode() {
 macos_general_setup() {
   set_dark_mode
 
-  # This no longer works as of Big Sur
-  # echo "Show Battery Percentage on the menu bar"
-  # defaults write com.apple.menuextra.battery ShowPercent -string "YES"
+  echo "Show Battery Percentage on the menu bar"
+  defaults -currentHost write com.apple.controlcenter Battery -int 2
+  defaults -currentHost write com.apple.controlcenter BatteryShowPercentage -bool true
 
   echo "Disable auto-correct spelling automatically"
   defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
-  # This no longer works as of Big Sur
-  # echo "Show seconds and date in menu bar"
-  # defaults write com.apple.menuextra.clock "DateFormat" "EEE d MMM HH:mm:ss"
+  echo "Show seconds and 24h time in menu bar"
+  defaults write NSGlobalDomain AppleICUForce24HourTime -bool true
+  defaults write com.apple.menuextra.clock ShowSeconds -bool true
 
   echo "Show bluetooth status in menubar"
   defaults write com.apple.controlcenter "NSStatusItem Visible Bluetooth" -bool true
@@ -82,7 +82,7 @@ macos_dock_setup() {
   defaults write com.apple.dock autohide -bool true
 
   echo "remove all icons from the dock"
-  defaults write com.apple.dock persistent-apps -array
+  defaults write com.apple.dock persistent-apps -array ""
   defaults write com.apple.dock show-recents -bool false
 
   echo "Set the Finder prefs for showing a few different volumes on the Desktop."
