@@ -1,10 +1,10 @@
 [core]
-  excludesfile = ~/.config/git/ignore
+excludesfile = ~/.config/git/ignore
 [rebase]
-  autoStash = true
+autoStash = true
 [credential]
-  helper = osxkeychain
+helper = osxkeychain
 [init]
-  defaultBranch = main
+defaultBranch = main
 [user]
-  name = Andrew Watson
+name = Andrew Watson
