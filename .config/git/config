@@ -1,5 +1,7 @@
 [core]
 excludesfile = ~/.config/git/ignore
+[commit]
+template = ~/.config/git/message
 [rebase]
 autoStash = true
 [credential]
