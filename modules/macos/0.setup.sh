@@ -82,7 +82,7 @@ macos_dock_setup() {
   defaults write com.apple.dock autohide -bool true
 
   echo "remove all icons from the dock"
-  defaults write com.apple.dock persistent-apps -array ""
+  defaults write com.apple.dock persistent-apps -array
   defaults write com.apple.dock show-recents -bool false
 
   echo "Set the Finder prefs for showing a few different volumes on the Desktop."
