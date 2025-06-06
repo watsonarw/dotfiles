@@ -12,36 +12,39 @@ EOF
 }
 
 open_for_editing() {
-  echo $1
+  echo "$1"
 
-  local path=$1
+  local path="$1"
 
-  ${EDITOR:-vi} $path
+  ${EDITOR:-vi} "$path"
 }
 
 setup_module_selection() {
   if [ ! -f "$module_selection_file" ]; then
     mkdir -p "$(dirname "${module_selection_file}")"
-    echo "$(instructions)" >$module_selection_file
-    ls ${modules_dir} >>$module_selection_file
-    open_for_editing $module_selection_file
+    instructions >"$module_selection_file"
+    ls "${modules_dir}" >>"$module_selection_file"
+    open_for_editing "$module_selection_file"
   fi
 }
 
 enabled_module_files() {
-  local glob_within_module=$1
+  local glob_within_module="$1"
 
-  local files_glob=""
+  local all_found_files=()
+  local module
 
-  for module in $(grep -v '^#' $module_selection_file); do
-    local module_files=("$modules_dir/$module/$glob_within_module")
+  shopt -s nullglob dotglob
 
-    local num_files=$(ls -A1 ${module_files} 2>/dev/null | wc -l)
+  while IFS= read -r module; do
+    [[ -z "$module" || "$module" =~ ^# ]] && continue # Skip blank lines and disabled modules
 
-    if [ $num_files -gt 0 ]; then
-      files_glob+=" ${module_files[@]}"
-    fi
-  done
+    for file in $modules_dir/$module/$glob_within_module; do
+      [[ -f "$file" ]] && all_found_files+=("$file")
+    done
+  done <"$module_selection_file"
 
-  echo $files_glob
+  shopt -u nullglob dotglob
+
+  echo "${all_found_files[@]-}"
 }
