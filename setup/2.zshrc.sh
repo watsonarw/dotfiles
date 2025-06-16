@@ -28,7 +28,7 @@ main() {
   h1 "Resetting .zshrc file"
 
   clear_global_zshrc
-  include_modular_zshrcs "$(enabled_module_files '.zshrc')"
+  include_modular_zshrcs "$(enabled_module_files '*.zshrc')"
 
   green_tick ".zshrc file reset"
 }

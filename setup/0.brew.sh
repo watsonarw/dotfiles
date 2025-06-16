@@ -44,7 +44,7 @@ include_modular_brewfiles() {
 setup_global_brewfile() {
   h2 "Setting up global Brewfile"
   clear_global_brewfile
-  include_modular_brewfiles "$(enabled_module_files 'Brewfile')"
+  include_modular_brewfiles "$(enabled_module_files '*.Brewfile')"
 }
 
 install_brew_deps() {

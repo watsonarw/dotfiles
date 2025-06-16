@@ -42,6 +42,9 @@
   "editorconfig.generateAuto": true,
   "explorer.openEditors.visible": 0,
   "extensions.ignoreRecommendations": true,
+  "files.associations": {
+    "*.Brewfile": "ruby"
+  },
   "files.autoSave": "onFocusChange",
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
