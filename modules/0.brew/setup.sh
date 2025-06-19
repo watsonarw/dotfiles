@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. "$(dirname "$0")"/../commons.sh
+. "$(dirname "$0")"/../../commons.sh
 
 install_homebrew() {
   bold "Checking for active brew installation"
@@ -54,12 +54,12 @@ install_brew_deps() {
 }
 
 main() {
-  h1 "Running homebrew setup"
+  h1 "Setting up ${script_dir}"
   install_homebrew
   setup_global_brewfile
   install_brew_deps
 
-  green_tick "Homebrew setup complete"
+  green_tick "Done"
 }
 
 main
