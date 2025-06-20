@@ -2,16 +2,20 @@
 
 . "$(dirname "$0")"/../commons.sh
 
-message() {
+_message() {
   cat <<EOF
+${YELLOW}
 |---------------------------------|
 |       Setting up Modules        |
 |---------------------------------|
+${RESET}
 EOF
 }
 
 main() {
-  yellow "$(message)"
+  _message
+
+  setup_enabled_modules
 
   run_executable_files "$(enabled_module_files '*.sh')"
 
@@ -19,3 +23,5 @@ main() {
 }
 
 main
+
+unset -f _message

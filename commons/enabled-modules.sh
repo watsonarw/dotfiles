@@ -51,7 +51,7 @@ _interactive_module_selection() {
   export ENABLED_MODULES="${selected_modules[*]:-}"
 }
 
-setup_module_selection() {
+setup_enabled_modules() {
   if [ -n "${ENABLED_MODULES:-}" ]; then
     _environment_modules_message
 
