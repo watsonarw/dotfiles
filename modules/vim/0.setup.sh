@@ -3,7 +3,7 @@
 . "$(dirname "$0")/../../commons.sh"
 
 link_vimrc() {
-  h2 "Linking vscode settings"
+  h2 "Linking vimrc settings"
   local global_vimrc="${HOME}/.vimrc"
   local vimrc_file="${script_dir}/.vimrc"
 
