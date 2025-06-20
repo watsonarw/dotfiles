@@ -1,12 +1,6 @@
 Brewfile.lock.json
-private/
-private-*
-.private/
-.private-*
 
-local/
-local-*
-.local/
-.local-*
-
-state/
+private*
+.private*
+local*
+.local*
