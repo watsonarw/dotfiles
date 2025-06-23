@@ -25,6 +25,7 @@ install_homebrew() {
 
 clear_global_brewfile() {
   rm -rf "${HOME}/.Brewfile"
+  touch "${HOME}/.Brewfile"
 }
 
 include_in_global_brewfile() {
