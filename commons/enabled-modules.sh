@@ -79,8 +79,8 @@ enabled_module_files() {
   for module in ${ENABLED_MODULES}; do
     [[ -z "$module" ]] && continue
 
-    for file in $modules_dir/$module/$glob_within_module; do
-      [[ -f "$file" ]] && all_found_files+=("$file")
+    for path in $modules_dir/$module/$glob_within_module; do
+      [[ -f "$path" || -d $path ]] && all_found_files+=("$path")
     done
   done
 

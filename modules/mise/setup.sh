@@ -11,12 +11,6 @@ activate_mise() {
   eval "$(${brew_bin_dir}/mise activate bash)"
 }
 
-reset_global_mise_config() {
-  bold "Resetting global mise config"
-  mkdir -p "$(dirname "$global_mise_config")"
-  cp "${mise_config_file}" "${global_mise_config}"
-}
-
 install_tool_versions() {
   bold "Installing tool versions"
   mise install -y
@@ -31,7 +25,6 @@ main() {
   h1 "Setting up ${script_dir}"
 
   activate_mise
-  reset_global_mise_config
   install_tool_versions
   cleanup_old_versions
 
