@@ -7,7 +7,6 @@ brew "gnupg"
 brew "zsh"
 brew "zoxide"
 brew "fzf"
-brew "svn" # Needed for some fonts
 
 cask "bruno"
 

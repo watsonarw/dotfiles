@@ -1,3 +1,4 @@
+brew "svn" # Needed for some fonts
 cask "keepassxc"
 cask "charles"
 
@@ -6,6 +7,5 @@ cask "ferdium/ferdium/ferdium"
 
 cask "zoom"
 
-tap "homebrew/cask-fonts"
 cask "font-bitter"
 cask "font-inter"
