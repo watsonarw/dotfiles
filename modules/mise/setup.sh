@@ -4,11 +4,31 @@
 
 mise_config_file="${root_dir}/.config/mise/config.toml"
 global_mise_config="${HOME}/.config/mise/config.toml"
+mise_install_path="${HOME}/.local/bin/mise"
+
+install_and_activate_mise() {
+  if ! command_exists mise; then
+    echo "Mise is not active"
+
+    bold "Checking for existing mise installation"
+
+    if [ ! -e "${mise_install_path}" ]; then
+      bold "Installing mise"
+      curl https://mise.run | sh
+    else
+      echo "Mise is installed at ${mise_install_path}, skipping install..."
+    fi
+
+    bold "Activating mise"
+    activate_mise
+  else
+    echo "Mise is installed and activated"
+  fi
+}
 
 activate_mise() {
-  bold "Activate mise"
   # Activate for bash instead of zsh, only for the script
-  eval "$(${brew_bin_dir}/mise activate bash)"
+  eval "$(${mise_install_path} activate bash)"
 }
 
 install_tool_versions() {
@@ -24,7 +44,7 @@ cleanup_old_versions() {
 main() {
   h1 "Setting up ${script_dir}"
 
-  activate_mise
+  install_and_activate_mise
   install_tool_versions
   cleanup_old_versions
 
