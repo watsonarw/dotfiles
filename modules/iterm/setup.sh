@@ -6,9 +6,7 @@ PROFILE_NAME="AW"
 DYNAMIC_PROFILES_DIR="${HOME}/Library/Application Support/iTerm2/DynamicProfiles"
 
 _link_iterm_profile() {
-
   mkdir -p "$DYNAMIC_PROFILES_DIR"
-
   ln -s -f "$profile_json" "$DYNAMIC_PROFILES_DIR/iterm-profiles.json"
 }
 
@@ -22,14 +20,12 @@ _set_iterm_profile_as_default() {
 
   defaults write "${ITERM_PREFS_PLIST}" "Default Bookmark Guid" -string "${profile_guid}"
 
-  echo "Default iTerm2 profile set to GUID: ${profile_guid}"
+  green_tick "Default iTerm2 profile set"
 }
 
 _restart_iterm_message() {
-  cat <<EOF
-${GREEN}Iterm profile has been set up.${RESET}
-${BOLD}Note: Iterm needs to be restarted for changes to take effect${RESET}
-EOF
+  style green "Iterm profile has been set up."
+  style bold "Note: Iterm needs to be restarted for changes to take effect"
 }
 
 main() {

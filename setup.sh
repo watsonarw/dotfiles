@@ -3,33 +3,27 @@
 . "$(dirname "$0")/commons.sh"
 
 _main_title() {
-  cat <<EOF
-${YELLOW}
+  style yellow invert <<EOF
 |---------------------------------|
 |                                 |
 |    Running main setup script    |
 |                                 |
 |---------------------------------|
-${RESET}
 EOF
 }
 
 _done_message() {
-  cat <<EOF
-${GREEN}
+  style green <<EOF
 |---------------------------------|
 |                                 |
 |  Successfully completed setup   |
 |                                 |
 |---------------------------------|
-${RESET}
 EOF
 }
 
 main() {
   _main_title
-
-  echo $root_dir
 
   run_executable_files "${root_dir}/setup/*"
 

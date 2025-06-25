@@ -126,7 +126,7 @@ setup_defaults() {
   killall SystemUIServer
   killall Finder
 
-  bold "$(yellow "Note that some of these changes require a logout/restart to take effect.")"
+  style bold yellow "Note that some of these changes require a logout/restart to take effect."
 }
 
 main() {

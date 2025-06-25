@@ -6,22 +6,22 @@ XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-"$HOME/.config"}
 
 _duplicate_config_error_message() {
   local conflicting_basenames="${1}"
-  cat <<EOF
-${RED}Error: Conflicting configs found in different modules:${RESET}
-${BOLD}${conflicting_basenames}${RESET}
-${RED}Configs will not be linked.${RESET}
+  style red <<EOF
+Error: Conflicting configs found in different modules:
+${BOLD}${conflicting_basenames}
+Aborting. Please resolve conflicting modules and try again.
 EOF
 }
 
 _existing_config_message() {
   local dest_path="$1"
-  cat <<EOF
-${YELLOW}Conflict: Existing config found at '${dest_path}'
-${BOLD}Replacing this config might have unexpected side effects.${RESET}
-
-${YELLOW}Please confirm before proceeding.
-The existing config will be moved to '${dest_path}.bak'${RESET}
+  style yellow <<EOF
+Conflict: Existing config found at '${dest_path}'
+${BOLD}Replacing this config might have unexpected side effects.
+Please confirm before proceeding.
+The existing config will be moved to '${dest_path}.bak'
 EOF
+
 }
 
 _check_for_conflicting_configs() {
@@ -50,16 +50,16 @@ _link_configs_in_xdg_base_path() {
     filename=$(basename -- "$path")
     dest_path="$target_dir/$filename"
 
-    echo "Config for ${filename}"
+    blue "Linking config for ${filename}"
 
     if [ ! -L "$dest_path" ] && [ -e "$dest_path" ]; then
       _existing_config_message "$dest_path"
 
       if confirm_yes_no "Overwrite '$dest_path'?"; then
-        echo "Overwriting existing config at '$dest_path'"
+        style "Overwriting existing config at '$dest_path'"
         mv "$dest_path" "$dest_path.bak"
       else
-        echo "Not linking '$dest_path'."
+        style "Not linking '$dest_path'."
         continue
       fi
     fi
@@ -67,8 +67,7 @@ _link_configs_in_xdg_base_path() {
     [[ -L ${dest_path} ]] && yellow "Note: Overwriting existing linked config at $dest_path"
 
     ln -s -n -f "$path" "$dest_path"
-    green_tick "Linked '$path' to '$dest_path'."
-
+    green "Linked '$path' to '$dest_path'."
   done
 }
 

@@ -3,25 +3,20 @@
 modules_dir="${root_dir}/modules"
 
 _no_modules_selected_message() {
-  cat <<EOF
-${RED}No modules were selected. Without any enabled modules, these scripts won't do anything.
-${BOLD}Either set ENABLED_MODULES or run this setup again and choose at least one module.
-${RESET}
+  style red <<EOF
+No modules were selected. Without any enabled modules, these scripts won't do anything.
+${BOLD}Run this setup again and choose at least one module.
 EOF
 }
 
 _environment_modules_message() {
-  cat <<EOF
-${BLUE}Modules from ENABLED_MODULES environment variable:${RESET}
-  ${BOLD}${ENABLED_MODULES}${RESET}
-EOF
+  blue "Modules from ENABLED_MODULES environment variable:"
+  bold "  ${ENABLED_MODULES}"
 }
 
 _selected_modules_message() {
-  cat <<EOF
-${BLUE}You've selected the following modules:${RESET}
-  ${BOLD}${ENABLED_MODULES}${RESET}
-EOF
+  blue "You've selected the following modules:"
+  bold "  ${ENABLED_MODULES}"
 }
 
 _persist_module_selection() {

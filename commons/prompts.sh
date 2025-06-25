@@ -3,7 +3,7 @@
 confirm_yes_no() {
   local prompt_message="$1"
   while true; do
-    read -rp "${prompt_message} (y/n):" choice
+    read -rp "${prompt_message} ${BOLD}(y/n)${RESET}:" choice
     case "${choice}" in
     [Yy])
       return 0 # Yes

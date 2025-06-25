@@ -21,9 +21,9 @@ install_and_activate_mise() {
 
     bold "Activating mise"
     activate_mise
-  else
-    echo "Mise is installed and activated"
   fi
+
+  green_tick "Mise is installed and activated"
 }
 
 activate_mise() {

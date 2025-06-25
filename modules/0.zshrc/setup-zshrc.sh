@@ -25,7 +25,7 @@ include_modular_zshrcs() {
 }
 
 main() {
-  h1 "Resetting .zshrc file"
+  bold "Resetting .zshrc file"
 
   clear_global_zshrc
   include_modular_zshrcs "$(enabled_module_files '*.zshrc')"
