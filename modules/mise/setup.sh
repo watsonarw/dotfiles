@@ -2,8 +2,7 @@
 
 . "$(dirname "$0")/../../lib/load.sh"
 
-global_mise_config="${HOME}/.config/mise/config.toml"
-mise_install_path="${HOME}/.local/bin/mise"
+readonly mise_install_path="${HOME}/.local/bin/mise"
 
 install_and_activate_mise() {
   if ! command_exists mise; then
