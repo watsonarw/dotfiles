@@ -17,9 +17,9 @@ include_in_global_zshrc() {
 }
 
 include_modular_zshrcs() {
-  local file_glob=$1
+  local files=($1)
 
-  for FILE in $file_glob; do
+  for FILE in "${files[@]}"; do
     include_in_global_zshrc "$FILE"
   done
 }

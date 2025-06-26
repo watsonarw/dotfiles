@@ -52,9 +52,9 @@ include_in_global_brewfile() {
 }
 
 include_modular_brewfiles() {
-  local file_glob=$1
+  local files=($1)
 
-  for FILE in $file_glob; do
+  for FILE in "${files[@]}"; do
     include_in_global_brewfile "$FILE"
   done
 }

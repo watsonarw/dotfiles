@@ -7,9 +7,9 @@ execute_file() {
 }
 
 run_executable_files() {
-  local scripts_glob=$1
+  local scripts=($1)
 
-  for SCRIPT in $scripts_glob; do
+  for SCRIPT in "${scripts[@]}"; do
     if [ -f "$SCRIPT" ] && [ -x "$SCRIPT" ]; then
       execute_file "$SCRIPT"
     fi
