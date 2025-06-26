@@ -1,25 +1,25 @@
 # This script is meant to be sourced, not executed.
 
-modules_dir="${dotfiles_dir}/modules"
+readonly modules_dir="${dotfiles_dir}/modules"
 
-_no_modules_selected_message() {
+no_modules_selected_message() {
   style red <<EOF
 No modules were selected. Without any enabled modules, these scripts won't do anything.
 ${BOLD}Run this setup again and choose at least one module.
 EOF
 }
 
-_environment_modules_message() {
+environment_modules_message() {
   blue "Modules from ENABLED_MODULES environment variable:"
   bold "  ${ENABLED_MODULES}"
 }
 
-_selected_modules_message() {
+selected_modules_message() {
   blue "You've selected the following modules:"
   bold "  ${ENABLED_MODULES}"
 }
 
-_persist_module_selection() {
+persist_module_selection() {
   confirm_yes_no "Persist module selection? (requires zshrc module)" || return 0
 
   local module_persistence_module=".local-module-persistence"
@@ -33,7 +33,7 @@ _persist_module_selection() {
   green_tick "Module selection persisted"
 }
 
-_interactive_module_selection() {
+interactive_module_selection() {
   local selected_modules=()
   local module_list=($(ls "${modules_dir}"))
 
@@ -48,33 +48,31 @@ _interactive_module_selection() {
 
 setup_enabled_modules() {
   if [ -n "${ENABLED_MODULES:-}" ]; then
-    _environment_modules_message
-
+    environment_modules_message
     confirm_yes_no "Use these modules?" && return 0
   fi
 
-  _interactive_module_selection
+  interactive_module_selection
 
   if [ -n "${ENABLED_MODULES}" ]; then
-    _selected_modules_message
-    _persist_module_selection
+    selected_modules_message
+    persist_module_selection
   else
-    _no_modules_selected_message
+    no_modules_selected_message
     exit 1
   fi
 }
 
 enabled_module_files() {
   local glob_within_module="$1"
-
   local all_found_files=()
 
   shopt -s nullglob dotglob
 
   for module in ${ENABLED_MODULES}; do
     [[ -z "$module" ]] && continue
-
-    for path in $modules_dir/$module/$glob_within_module; do
+    local -a paths=($modules_dir/$module/$glob_within_module)
+    for path in "${paths[@]:-}"; do
       [[ -f "$path" || -d $path ]] && all_found_files+=("$path")
     done
   done
