@@ -1,6 +1,6 @@
 # This script is meant to be sourced, not executed.
 
-modules_dir="${root_dir}/modules"
+modules_dir="${dotfiles_dir}/modules"
 
 _no_modules_selected_message() {
   style red <<EOF

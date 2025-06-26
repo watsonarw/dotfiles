@@ -25,7 +25,7 @@ EOF
 main() {
   _main_title
 
-  run_executable_files "${root_dir}/setup/*"
+  run_executable_files "${dotfiles_dir}/setup/*"
 
   _done_message
 }

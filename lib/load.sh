@@ -5,9 +5,9 @@ set -euo pipefail
 script_name=$(basename "${0}")
 readonly script_name
 export script_name
-root_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
-readonly root_dir
-export root_dir
+dotfiles_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
+readonly dotfiles_dir
+export dotfiles_dir
 script_dir=$(cd "$(dirname "${0}")" && pwd)
 readonly script_dir
 export script_dir
@@ -23,6 +23,6 @@ _source_all_files() {
   done
 }
 
-_source_all_files "${root_dir}/lib/*.lib.sh"
+_source_all_files "${dotfiles_dir}/lib/*.lib.sh"
 
 unset -f _source_all_files
