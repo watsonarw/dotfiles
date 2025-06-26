@@ -1,8 +1,8 @@
 # dotfiles
 
-The most over-engineered shell scripts I've ever written, AKA dotfiles for setting up a machine
+The most over-engineered shell scripts I've ever written, AKA scripts for setting up a new machine
 
-## Usage
+## Setting up a new machine
 
 Note: This has only been built to work on MacOS, I might add other platforms when I need them
 
@@ -20,31 +20,30 @@ Then run:
 ## What this sets up
 
 * [brew]
-* Up to date versions of some "core" utilities
-  * See [Brewfile](./modules/0.core/Brewfile) to find out which
-* A bunch of MacOS apps that I use all the time
-  * Via [Brew cask](https://github.com/Homebrew/homebrew-cask) and [Brew bundle](https://github.com/Homebrew/homebrew-bundle)
-
 * [mise] for managing tool versions/SDKs
-* [pkgx] for running packages that aren't installed
-* 1password SSH agent
+* Up to date versions of some "core" utilities
+* [pkgx] for running packages that I don't want to install, or for running older versions of packages
 * Git config
 * [oh my zsh](https://ohmyz.sh/)
 * MacOS dark mode, menu bar, keyboard and some other UX preferences
 * [Visual Studio Code](https://code.visualstudio.com/), default plugins and settings
+* A bunch of tools and MacOS apps that I use all the time
 * More stuff
 
 ## How it works
 
 * A bunch of shell scripts
-* [brew], [mise]
+* Modules which can be enabled/disabled for each install
+* It should be idempotent (I hope), and safe to run multiple time
 
+## Adding a new module
 
-## [brew]. [mise] - When to use each?
-
-- MacOS apps are installed with [brew] cask
-- "Core" packages, particularly if they're part of the shell (e.g. zsh, git coreutils, docker) installed via [brew]
-- SDKs, tool versions etc, particularly those specific to a project should be installed with [mise]
+1. Make a copy of (modules/.template/) with an appropriate module name
+   * Prepend the module name with `local` or `private` for things that shouldn't be committed
+2. Remove unnecessary files
+   * (e.g. if the module only needs to install things with Brew, only keep `.Brewfile`)
+3. Run `./setup.sh` to set up the new module
 
 [mise]: https://mise.jdx.dev/
 [brew]: https://brew.sh/
+[pkgx]: https://github.com/pkgxdev/pkgx
