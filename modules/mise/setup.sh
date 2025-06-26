@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. "$(dirname "$0")"/../../commons.sh
+. "$(dirname "$0")/../../lib/load.sh"
 
 mise_config_file="${root_dir}/.config/mise/config.toml"
 global_mise_config="${HOME}/.config/mise/config.toml"

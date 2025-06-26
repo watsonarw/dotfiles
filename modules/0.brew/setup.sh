@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. "$(dirname "$0")"/../../commons.sh
+. "$(dirname "$0")/../../lib/load.sh"
 
 brew_location() {
   # Adapted from https://github.com/ohmyzsh/ohmyzsh/blob/HEAD/plugins/brew/brew.plugin.zsh

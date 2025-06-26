@@ -1,4 +1,4 @@
-#! /bin/bash
+# This script is meant to be sourced, not executed.
 
 confirm_yes_no() {
   local prompt_message="$1"

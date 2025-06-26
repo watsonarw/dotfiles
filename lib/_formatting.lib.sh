@@ -1,4 +1,4 @@
-#! /bin/bash
+# This script is meant to be sourced, not executed.
 
 setup_color() {
   # Only use colors if connected to a terminal

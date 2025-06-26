@@ -1,4 +1,4 @@
-#! /bin/bash
+# This script is meant to be sourced, not executed.
 
 modules_dir="${root_dir}/modules"
 

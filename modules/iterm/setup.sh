@@ -1,6 +1,7 @@
 #!/bin/bash
 
-. "$(dirname "$0")/../../commons.sh"
+. "$(dirname "$0")/../../lib/load.sh"
+
 profile_json="${script_dir}/iterm-profiles.json"
 PROFILE_NAME="AW"
 DYNAMIC_PROFILES_DIR="${HOME}/Library/Application Support/iTerm2/DynamicProfiles"

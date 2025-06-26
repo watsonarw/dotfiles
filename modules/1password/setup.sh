@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. "$(dirname "$0")/../../commons.sh"
+. "$(dirname "$0")/../../lib/load.sh"
 
 readonly ssh_dir=${HOME}/.ssh
 readonly ssh_config_file=${ssh_dir}/config

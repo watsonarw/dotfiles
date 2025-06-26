@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. "$(dirname "$0")/../../commons.sh"
+. "$(dirname "$0")/../../lib/load.sh"
 
 install_omz() {
   local ZSH=${HOME}/.oh-my-zsh

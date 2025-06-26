@@ -1,11 +1,11 @@
-#! /bin/bash
+# This script is meant to be sourced, not executed.
 
 set -euo pipefail
 
 script_name=$(basename "${0}")
 readonly script_name
 export script_name
-root_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+root_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
 readonly root_dir
 export root_dir
 script_dir=$(cd "$(dirname "${0}")" && pwd)
@@ -23,6 +23,6 @@ _source_all_files() {
   done
 }
 
-_source_all_files "./commons/*"
+_source_all_files "${root_dir}/lib/*.lib.sh"
 
 unset -f _source_all_files
