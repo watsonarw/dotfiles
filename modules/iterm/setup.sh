@@ -2,39 +2,46 @@
 
 . "$(dirname "$0")/../../lib/load.sh"
 
-profile_json="${script_dir}/iterm-profiles.json"
-PROFILE_NAME="AW"
-DYNAMIC_PROFILES_DIR="${HOME}/Library/Application Support/iTerm2/DynamicProfiles"
+readonly iterm_profiles_dir="${HOME}/Library/Application Support/iTerm2/DynamicProfiles"
+readonly iterm_prefs_plist="${HOME}/Library/Preferences/com.googlecode.iterm2.plist"
 
-_link_iterm_profile() {
-  mkdir -p "$DYNAMIC_PROFILES_DIR"
-  ln -s -f "$profile_json" "$DYNAMIC_PROFILES_DIR/iterm-profiles.json"
+get_profile_guid() {
+  local profile_json="$1"
+  local profile_name="$2"
+
+  jq -r ".Profiles[] | select(.Name == \"$profile_name\") | .Guid" "$profile_json"
 }
 
-_get_profile_guid() {
-  jq -r ".Profiles[] | select(.Name == \"$PROFILE_NAME\") | .Guid" "$profile_json"
+link_iterm_profile() {
+  local profile_json="$1"
+
+  mkdir -p "$iterm_profiles_dir"
+  ln -s -f "$profile_json" "$iterm_profiles_dir/iterm-profiles.json"
 }
 
-_set_iterm_profile_as_default() {
-  local profile_guid="$(_get_profile_guid)"
-  local ITERM_PREFS_PLIST="${HOME}/Library/Preferences/com.googlecode.iterm2.plist"
+set_iterm_profile_as_default() {
+  local profile_json="$1"
+  local profile_name="$2"
 
-  defaults write "${ITERM_PREFS_PLIST}" "Default Bookmark Guid" -string "${profile_guid}"
+  local profile_guid="$(get_profile_guid $profile_json $profile_name)"
 
-  green_tick "Default iTerm2 profile set"
+  defaults write "${iterm_prefs_plist}" "Default Bookmark Guid" -string "${profile_guid}"
 }
 
-_restart_iterm_message() {
-  style green "Iterm profile has been set up."
-  style bold "Note: Iterm needs to be restarted for changes to take effect"
+restart_iterm_message() {
+  green_tick "Iterm profile has been set up as default."
+  style yellow "Note: Iterm needs to be restarted for changes to take effect"
 }
 
 main() {
   h1 "Setting up ${script_dir}"
 
-  _link_iterm_profile
-  _set_iterm_profile_as_default
-  _restart_iterm_message
+  local profile_json="${script_dir}/iterm-profiles.json"
+  local profile_name="AW"
+
+  link_iterm_profile $profile_json
+  set_iterm_profile_as_default $profile_json $profile_name
+  restart_iterm_message
 
   green_tick "Done"
 }
