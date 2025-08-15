@@ -67,5 +67,8 @@
   "workbench.colorTheme": "Default Dark Modern",
   "workbench.editor.empty.hint": "hidden",
   "workbench.iconTheme": "material-icon-theme",
-  "workbench.startupEditor": "none"
+  "workbench.startupEditor": "none",
+  "diffEditor.renderSideBySide": true,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.accessibilitySupport": "off"
 }
