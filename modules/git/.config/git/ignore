@@ -19,3 +19,4 @@
 
 # Private Mise config
 .mise.local.toml
+mise.local.toml
