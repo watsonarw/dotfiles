@@ -21,6 +21,8 @@ install_and_activate_mise() {
     activate_mise
   fi
 
+  mise self-update -y
+
   green_tick "Mise is installed and activated"
 }
 
