@@ -4,3 +4,5 @@ private*
 .private*
 local*
 .local*
+*.private
+*.local
