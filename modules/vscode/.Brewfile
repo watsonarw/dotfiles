@@ -9,6 +9,8 @@ vscode "pkief.material-icon-theme"
 vscode "eamodio.gitlens"
 vscode "streetsidesoftware.code-spell-checker"
 vscode "streetsidesoftware.code-spell-checker-australian-english"
+vscode "github.copilot"
+vscode "github.copilot-chat"
 
 
 # File utils
@@ -25,6 +27,8 @@ vscode "yzhang.markdown-all-in-one"
 # Converters
 vscode "adamhartford.vscode-base64"
 vscode "espresso3389.unixtime-converter"
+vscode "hilleer.yaml-plus-json"
+
 
 # Languages / Filetypes
 vscode "ms-azuretools.vscode-docker"
@@ -33,3 +37,9 @@ vscode "esbenp.prettier-vscode"
 vscode "foxundermoon.shell-format"
 vscode "jock.svg"
 vscode "mechatroner.rainbow-csv"
+vscode "tamasfe.even-better-toml"
+
+# Frameworks
+vscode "hverlin.mise-vscode"
+vscode "denoland.vscode-deno"
+vscode "astro-build.astro-vscode"

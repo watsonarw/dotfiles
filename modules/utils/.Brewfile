@@ -15,6 +15,7 @@ brew "tldr"
 brew "tree"
 brew "jq"
 brew "btop"
+brew "shellcheck"
 
 tap "pkgxdev/made"
 brew "pkgxdev/made/pkgx"
