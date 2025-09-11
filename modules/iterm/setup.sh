@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
-. "$(dirname "$0")/../../lib/load.sh"
+script_dir=$(dirname "$0")
+lib_dir="$script_dir/../../lib"
+. "$lib_dir/lib-loader.sh"
+load_libs "$lib_dir"
 
 readonly iterm_profiles_dir="${HOME}/Library/Application Support/iTerm2/DynamicProfiles"
 readonly iterm_prefs_plist="${HOME}/Library/Preferences/com.googlecode.iterm2.plist"

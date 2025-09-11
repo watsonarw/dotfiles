@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
-. "$(dirname "$0")/../../lib/load.sh"
+script_dir=$(dirname "$0")
+lib_dir="$script_dir/../../lib"
+. "$lib_dir/lib-loader.sh"
+load_libs "$lib_dir"
 
 readonly ssh_dir=${HOME}/.ssh
 readonly ssh_config_file=${ssh_dir}/config
