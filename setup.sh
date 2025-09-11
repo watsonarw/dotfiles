@@ -30,7 +30,7 @@ setup_modules() {
   local modules_dir="$(resolve_canonical_path "$1")"
 
   setup_enabled_modules "$modules_dir"
-  run_executable_files "$(enabled_module_files '*.sh')"
+  run_executable_files "$modules_dir" $(enabled_module_files '*.sh')
 }
 
 main() {
