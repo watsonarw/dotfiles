@@ -2,7 +2,7 @@
 
 . "$(dirname "$0")/lib/load.sh"
 
-_main_title() {
+main_title() {
   style yellow invert <<EOF
 |---------------------------------|
 |                                 |
@@ -12,7 +12,7 @@ _main_title() {
 EOF
 }
 
-_done_message() {
+done_message() {
   style green <<EOF
 |---------------------------------|
 |                                 |
@@ -22,15 +22,19 @@ _done_message() {
 EOF
 }
 
+setup_modules() {
+  local modules_dir="$1"
+
+  setup_enabled_modules "$modules_dir"
+  run_executable_files "$(enabled_module_files '*.sh')"
+}
+
 main() {
-  _main_title
+  main_title
 
-  run_executable_files "${dotfiles_dir}/setup/*"
+  setup_modules "${script_dir}/modules"
 
-  _done_message
+  done_message
 }
 
 main
-
-unset -f _main_title
-unset -f _done_message

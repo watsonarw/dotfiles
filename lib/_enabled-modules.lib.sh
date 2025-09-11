@@ -1,7 +1,5 @@
 # This script is meant to be sourced, not executed.
 
-readonly modules_dir="${dotfiles_dir}/modules"
-
 no_modules_selected_message() {
   style red <<EOF
 No modules were selected. Without any enabled modules, these scripts won't do anything.
@@ -10,13 +8,13 @@ EOF
 }
 
 environment_modules_message() {
-  blue "Modules from ENABLED_MODULES environment variable:"
-  bold "  ${ENABLED_MODULES}"
+  blue "Modules from DOTFILES_ENABLED_MODULES environment variable:"
+  bold "  ${DOTFILES_ENABLED_MODULES}"
 }
 
 selected_modules_message() {
   blue "You've selected the following modules:"
-  bold "  ${ENABLED_MODULES}"
+  bold "  ${DOTFILES_ENABLED_MODULES}"
 }
 
 persist_module_selection() {
@@ -25,10 +23,10 @@ persist_module_selection() {
   local module_persistence_module=".local-module-persistence"
   local module_persistence_dir="${modules_dir}/${module_persistence_module}"
 
-  export ENABLED_MODULES="${ENABLED_MODULES} ${module_persistence_module}"
+  export DOTFILES_ENABLED_MODULES="${DOTFILES_ENABLED_MODULES} ${module_persistence_module}"
 
   mkdir -p "$module_persistence_dir"
-  echo "export ENABLED_MODULES=\"${ENABLED_MODULES}\"" >"$module_persistence_dir/.zshrc"
+  echo "export DOTFILES_ENABLED_MODULES=\"${DOTFILES_ENABLED_MODULES}\"" >"$module_persistence_dir/.zshrc"
 
   green_tick "Module selection persisted"
 }
@@ -43,18 +41,20 @@ interactive_module_selection() {
     confirm_yes_no "Enable module '${module}'?" && selected_modules+=("${module}")
   done
 
-  export ENABLED_MODULES="${selected_modules[*]:-}"
+  export DOTFILES_ENABLED_MODULES="${selected_modules[*]:-}"
 }
 
 setup_enabled_modules() {
-  if [ -n "${ENABLED_MODULES:-}" ]; then
+  export modules_dir="${1}"
+
+  if [ -n "${DOTFILES_ENABLED_MODULES:-}" ]; then
     environment_modules_message
     confirm_yes_no "Use these modules?" && return 0
   fi
 
   interactive_module_selection
 
-  if [ -n "${ENABLED_MODULES}" ]; then
+  if [ -n "${DOTFILES_ENABLED_MODULES}" ]; then
     selected_modules_message
     persist_module_selection
   else
@@ -69,7 +69,7 @@ enabled_module_files() {
 
   shopt -s nullglob dotglob
 
-  for module in ${ENABLED_MODULES}; do
+  for module in ${DOTFILES_ENABLED_MODULES}; do
     [[ -z "$module" ]] && continue
     local -a paths=($modules_dir/$module/$glob_within_module)
     for path in "${paths[@]:-}"; do
