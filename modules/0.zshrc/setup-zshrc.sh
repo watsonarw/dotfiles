@@ -21,9 +21,7 @@ include_in_global_zshrc() {
 }
 
 include_modular_zshrcs() {
-  local files=($1)
-
-  for FILE in "${files[@]}"; do
+  for FILE; do
     include_in_global_zshrc "$FILE"
   done
 }
@@ -32,7 +30,7 @@ main() {
   bold "Resetting .zshrc file"
 
   clear_global_zshrc
-  include_modular_zshrcs "$(enabled_module_files '*.zshrc')"
+  include_modular_zshrcs $(enabled_module_files '*.zshrc')
 
   green_tick ".zshrc file reset"
 }
