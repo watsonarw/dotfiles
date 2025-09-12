@@ -34,11 +34,12 @@ ensure_xdg_config_dir_exists() {
 }
 
 link_configs_in_xdg_base_path() {
-  local configs_to_link=${1:-}
   local target_dir=${XDG_CONFIG_HOME}
 
-  for path in ${configs_to_link[@]}; do
-    link_with_conflict_prompt "$path" "$target_dir"
+  for path; do
+    local filename=$(basename -- "$path")
+    local symlink_path="$target_dir/$filename"
+    link_with_conflict_prompt "$path" "$symlink_path"
   done
 }
 
@@ -49,7 +50,7 @@ main() {
 
   check_for_conflicting_configs "$xdg_config_files"
   ensure_xdg_config_dir_exists
-  link_configs_in_xdg_base_path "$xdg_config_files"
+  link_configs_in_xdg_base_path $xdg_config_files
 
   green_tick "Done"
 }

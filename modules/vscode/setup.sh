@@ -11,16 +11,15 @@ vscode_user_dir="${HOME}/Library/Application Support/Code/User"
 link_settings_json() {
   h2 "Linking vscode settings"
   local vscode_settings_json="${vscode_user_dir}/settings.json"
-  local settings_json_file="${script_dir}/vscode-settings.json"
+  local settings_json_file="$(resolve_canonical_path "${script_dir}/vscode-settings.json")"
 
   ln -sf "$settings_json_file" "$vscode_settings_json"
 }
 
 link_copilot_prompts() {
     h2 "Linking copilot prompts"
-  local vscode_prompts_dir="${vscode_user_dir}"
-  local prompts_dir="${script_dir}/prompts"
-
+  local vscode_prompts_dir="${vscode_user_dir}/prompts"
+  local prompts_dir="$(resolve_canonical_path "${script_dir}/prompts")"
 
   link_with_conflict_prompt "$prompts_dir" "$vscode_prompts_dir"
 }
