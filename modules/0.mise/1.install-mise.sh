@@ -7,6 +7,7 @@ lib_dir="$script_dir/../../lib"
 load_libs "$lib_dir"
 
 readonly mise_install_path="${HOME}/.local/bin/mise"
+readonly mise_conf_dir="${XDG_CONFIG_HOME:-$HOME/.config}/mise/conf.d/"
 
 install_and_activate_mise() {
   if ! command_exists mise; then
@@ -35,22 +36,11 @@ activate_mise() {
   eval "$(${mise_install_path} activate bash)"
 }
 
-install_tool_versions() {
-  bold "Installing tool versions"
-  mise install -y
-}
-
-cleanup_old_versions() {
-  bold "Cleaning up old versions"
-  mise prune -y
-}
 
 main() {
   h1 "Setting up ${script_dir}"
 
   install_and_activate_mise
-  install_tool_versions
-  cleanup_old_versions
 
   green_tick "Done"
 }

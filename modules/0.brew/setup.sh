@@ -77,7 +77,7 @@ main() {
   h1 "Setting up ${script_dir}"
   install_homebrew
   setup_global_brewfile
-  install_brew_deps
+  # install_brew_deps
 
   green_tick "Done"
 }
