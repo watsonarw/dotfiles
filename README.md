@@ -20,9 +20,8 @@ Then run:
 ## What this sets up
 
 * [brew]
-* [mise] for managing tool versions/SDKs
+* [mise]
 * Up to date versions of some "core" utilities
-* [pkgx] for running packages that I don't want to install, or for running older versions of packages
 * Git config
 * [oh my zsh](https://ohmyz.sh/)
 * MacOS dark mode, menu bar, keyboard and some other UX preferences
@@ -46,4 +45,3 @@ Then run:
 
 [mise]: https://mise.jdx.dev/
 [brew]: https://brew.sh/
-[pkgx]: https://github.com/pkgxdev/pkgx
