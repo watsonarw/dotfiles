@@ -1,0 +1,8 @@
+[tools]
+fzf = "latest"
+zoxide = "latest"
+coreutils = "latest"
+
+tlrc = "latest"
+jq = "latest"
+shellcheck = "latest"

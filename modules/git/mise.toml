@@ -1,0 +1,7 @@
+[tasks.set_git_email]
+description = "Set git email for this directory (and child directories)"
+
+run = [
+  'mise set --env local GIT_AUTHOR_EMAIL="{{arg(name="email")}}"',
+  'mise set --env local GIT_COMMITTER_EMAIL="{{arg(name="email")}}"',
+]

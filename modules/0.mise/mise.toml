@@ -2,9 +2,5 @@
 node = "latest"
 watchexec = "latest"
 
-[env]
-
-
 [settings]
 experimental = true
-idiomatic_version_file_enable_tools = ["ruby", "node"]
