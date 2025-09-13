@@ -32,6 +32,7 @@ vscode "hilleer.yaml-plus-json"
 
 # Languages / Filetypes
 vscode "ms-azuretools.vscode-docker"
+vscode "ms-azuretools.vscode-containers"
 vscode "dbaeumer.vscode-eslint"
 vscode "esbenp.prettier-vscode"
 vscode "foxundermoon.shell-format"

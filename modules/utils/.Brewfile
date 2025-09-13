@@ -1,10 +1,7 @@
 # Newer versions of core utilities that aren't bundled with MacOS
-brew "gcc"
 brew "libressl"
 brew "openssh"
 brew "coreutils"
-brew "gnupg"
-brew "zsh"
 brew "zoxide"
 brew "fzf"
 
@@ -16,6 +13,3 @@ brew "tree"
 brew "jq"
 brew "btop"
 brew "shellcheck"
-
-tap "pkgxdev/made"
-brew "pkgxdev/made/pkgx"

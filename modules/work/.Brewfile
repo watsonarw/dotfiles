@@ -1,6 +1,4 @@
-brew "svn" # Needed for some fonts
 cask "keepassxc"
-cask "charles"
 
 cask "zoom"
 
