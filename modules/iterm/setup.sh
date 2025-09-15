@@ -40,7 +40,7 @@ restart_iterm_message() {
 main() {
   h1 "Setting up ${script_dir}"
 
-  local profile_json="${script_dir}/iterm-profiles.json"
+  local profile_json="$(resolve_canonical_path "${script_dir}/iterm-profiles.json")"
   local profile_name="AW"
 
   link_iterm_profile $profile_json
