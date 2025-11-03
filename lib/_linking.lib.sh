@@ -24,5 +24,14 @@ link_with_conflict_prompt() {
     fi
   fi
 
-  ln -s -n -f "$source_path" "$symlink_path"
+  local canonical_source=$(resolve_canonical_path "$source_path")
+  ln -s -n -f "$canonical_source" "$symlink_path"
+}
+
+safe_link_into_dir() {
+  local source_path="$1"
+  local symlink_path="$2"
+
+  mkdir -p "$(dirname "$symlink_path")"
+  link_with_conflict_prompt "$source_path" "$symlink_path"
 }

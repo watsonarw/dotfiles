@@ -73,7 +73,7 @@ enabled_module_files() {
     [[ -z "$module" ]] && continue
     local -a paths=($modules_dir/$module/$glob_within_module)
     for path in "${paths[@]:-}"; do
-      [[ -f "$path" || -d $path ]] && all_found_files+=("$path")
+      [[ -f "$path" || -d $path ]] && all_found_files+=("$(resolve_canonical_path "$path")")
     done
   done
 

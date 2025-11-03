@@ -69,6 +69,9 @@ style() {
   if [ ! -t 0 ]; then
     # Text from stdin, all arguments are styles
     text=$(cat)
+  fi
+
+  if [ -n "$text" ]; then
     styles="$*"
   elif [ "$#" -eq 0 ]; then
     # No arguments, print newline, like echo

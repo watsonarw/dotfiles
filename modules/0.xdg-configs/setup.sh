@@ -39,7 +39,7 @@ link_configs_in_xdg_base_path() {
   for path; do
     local filename=$(basename -- "$path")
     local symlink_path="$target_dir/$filename"
-    link_with_conflict_prompt "$path" "$symlink_path"
+    safe_link_into_dir "$path" "$symlink_path"
   done
 }
 

@@ -16,7 +16,7 @@ link_mise_config_with_module_name() {
 
   style "Linking ${source_path}"
 
-  link_with_conflict_prompt "${source_path}" "${symlink_path}"
+  safe_link_into_dir "${source_path}" "${symlink_path}"
 }
 
 link_mise_configs_in_directory() {
