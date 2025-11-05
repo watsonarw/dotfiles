@@ -86,9 +86,9 @@ safe_load_lib() {
 	base_path="$1"
 	pattern="$2"
 
-	for lib_file in ${base_path}/${pattern}.lib.sh; do
+	while IFS= read -r lib_file; do
 		safe_source "$base_path" "$lib_file"
-	done
+	done < <(find "$base_path" -maxdepth 1 -name "${pattern}.lib.sh")
 }
 
 # Usage: load_libs <lib_directory>

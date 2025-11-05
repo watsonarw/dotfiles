@@ -1,0 +1,14 @@
+zmodule environment
+zmodule input
+zmodule utility
+zmodule git
+
+zmodule homebrew
+
+zmodule zsh-users/zsh-completions --fpath src
+
+# Modules that must be initialized last
+
+zmodule completion
+zmodule zsh-users/zsh-syntax-highlighting
+zmodule zsh-users/zsh-autosuggestions
