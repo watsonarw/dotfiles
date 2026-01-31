@@ -1,27 +1,12 @@
 {
   "[dotenv]": {},
-  "[html]": {
-    "editor.defaultFormatter": "vscode.html-language-features"
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "vscode.typescript-language-features"
-  },
-  "[json]": {
-    "editor.defaultFormatter": "vscode.json-language-features"
-  },
-  "[jsonc]": {
-    "editor.defaultFormatter": "vscode.json-language-features"
-  },
-  "[markdown]": {
-    "editor.defaultFormatter": "yzhang.markdown-all-in-one"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
+  "cSpell.language": "en-AU,en",
+  "cSpell.userWords": [],
+  "diffEditor.ignoreTrimWhitespace": false,
+  "diffEditor.renderSideBySide": true,
+  "editor.accessibilitySupport": "off",
   "editor.bracketPairColorization.enabled": true,
+  "editor.defaultFormatter": "denoland.vscode-deno",
   "editor.fontFamily": "FiraCode Nerd Font, Fira Code, Source Code Pro, Menlo, Monaco, 'Courier New', monospace",
   "editor.fontSize": 14,
   "editor.formatOnPaste": true,
@@ -30,14 +15,12 @@
     "strings": true
   },
   "editor.renderWhitespace": "all",
-  "editor.rulers": [
-    120
-  ],
+  "editor.rulers": [120],
   "editor.scrollBeyondLastLine": false,
   "editor.stablePeek": true,
   "editor.stickyScroll.enabled": true,
   "editor.tabSize": 2,
-  "editor.wordWrap": "wordWrapColumn",
+  "editor.wordWrap": "bounded",
   "editor.wordWrapColumn": 120,
   "editorconfig.generateAuto": true,
   "explorer.openEditors.visible": 0,
@@ -48,6 +31,14 @@
   "files.autoSave": "onFocusChange",
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false,
+    "mdx": false
+  },
+  "github.copilot.nextEditSuggestions.enabled": true,
   "gitlens.views.branches.branches.layout": "list",
   "json.schemas": [],
   "launch": {
@@ -58,17 +49,18 @@
   "markdown-mermaid.lightModeTheme": "base",
   "markdown-preview-github-styles.colorTheme": "light",
   "notebook.stickyScroll.enabled": true,
-  "prettier.configPath": ".prettierrc",
   "shellformat.useEditorConfig": true,
   "svg.preview.mode": "img",
   "telemetry.telemetryLevel": "off",
   "terminal.integrated.fontSize": 14,
   "terminal.integrated.scrollback": 100000,
+  "terminal.integrated.stickyScroll.enabled": false,
   "workbench.colorTheme": "Default Dark Modern",
   "workbench.editor.empty.hint": "hidden",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.startupEditor": "none",
-  "diffEditor.renderSideBySide": true,
-  "diffEditor.ignoreTrimWhitespace": false,
-  "editor.accessibilitySupport": "off"
+  "[toml]": {
+    "editor.defaultFormatter": "tamasfe.even-better-toml"
+  },
+  "gitlens.rebaseEditor.openOnPausedRebase": false
 }

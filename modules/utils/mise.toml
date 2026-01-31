@@ -6,3 +6,5 @@ coreutils = "latest"
 tlrc = "latest"
 jq = "latest"
 shellcheck = "latest"
+
+deno = "latest"

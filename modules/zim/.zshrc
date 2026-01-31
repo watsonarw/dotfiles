@@ -23,3 +23,6 @@ alias grbi="echo 'did you mean: gri'"
 alias bu="echo 'did you mean: brewu'"
 alias gbD="echo 'did you mean: gbx'"
 alias gbda="echo 'did you mean: gbG'"
+
+# Avoid conflicts with github cli
+unalias gh
