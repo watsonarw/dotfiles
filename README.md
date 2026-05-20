@@ -6,13 +6,20 @@ The most over-engineered shell scripts I've ever written, AKA scripts for settin
 
 Note: This has only been built to work on MacOS, I might add other platforms when I need them
 
+Install xcode tools first
+
 ```sh
-xcode-select --install && \
+xcode-select --install
+```
+
+Clone the repo
+
+```sh
 git clone https://github.com/watsonarw/dotfiles.git ~/.dotfiles && \
 cd ~/.dotfiles
 ```
 
-Then run:
+Run:
 ```
 ./setup.sh
 ```
@@ -23,7 +30,7 @@ Then run:
 * [mise]
 * Up to date versions of some "core" utilities
 * Git config
-* [oh my zsh](https://ohmyz.sh/)
+* [zim](https://zimfw.sh/)
 * MacOS dark mode, menu bar, keyboard and some other UX preferences
 * [Visual Studio Code](https://code.visualstudio.com/), default plugins and settings
 * A bunch of tools and MacOS apps that I use all the time

@@ -1,6 +1,6 @@
 cask "rectangle"
 cask "keepingyouawake"
 cask "notunes"
-cask "jordanbaird-ice"
+cask "thaw"
 
 brew "mas"
