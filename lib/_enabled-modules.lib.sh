@@ -1,5 +1,8 @@
 # This script is meant to be sourced, not executed.
 
+
+readonly module_persistence_module=".module-persistence.local"
+
 no_modules_selected_message() {
   style red <<EOF
 No modules were selected. Without any enabled modules, these scripts won't do anything.
@@ -20,7 +23,6 @@ selected_modules_message() {
 persist_module_selection() {
   confirm_yes_no "Persist module selection? (requires zshrc module)" || return 0
 
-  local module_persistence_module=".local-module-persistence"
   local module_persistence_dir="${modules_dir}/${module_persistence_module}"
 
   export DOTFILES_ENABLED_MODULES="${DOTFILES_ENABLED_MODULES} ${module_persistence_module}"
