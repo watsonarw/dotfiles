@@ -55,7 +55,6 @@
   "terminal.integrated.fontSize": 14,
   "terminal.integrated.scrollback": 100000,
   "terminal.integrated.stickyScroll.enabled": false,
-  "workbench.colorTheme": "Default Dark Modern",
   "workbench.editor.empty.hint": "hidden",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.startupEditor": "none",
