@@ -9,7 +9,6 @@ vscode "pkief.material-icon-theme"
 vscode "eamodio.gitlens"
 vscode "streetsidesoftware.code-spell-checker"
 vscode "streetsidesoftware.code-spell-checker-australian-english"
-vscode "github.copilot"
 vscode "github.copilot-chat"
 
 

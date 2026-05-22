@@ -6,4 +6,3 @@ cask "bruno"
 
 # Useful Utils
 brew "tree"
-brew "btop"
