@@ -1,0 +1,1 @@
+vscode "foxundermoon.shell-format"

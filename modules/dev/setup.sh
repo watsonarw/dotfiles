@@ -16,19 +16,10 @@ link_settings_json() {
   safe_link_into_dir "$settings_json_file" "$vscode_settings_json"
 }
 
-link_copilot_prompts() {
-    h2 "Linking copilot prompts"
-  local vscode_prompts_dir="${vscode_user_dir}/prompts"
-  local prompts_dir="${script_dir}/prompts"
-
-  safe_link_into_dir "$prompts_dir" "$vscode_prompts_dir"
-}
-
 main() {
   h1 "Setting up ${script_dir}"
 
   link_settings_json
-  link_copilot_prompts
 
   green_tick "Done"
 }

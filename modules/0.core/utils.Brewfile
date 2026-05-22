@@ -2,7 +2,5 @@
 brew "libressl"
 brew "openssh"
 
-cask "bruno"
-
 # Useful Utils
 brew "tree"

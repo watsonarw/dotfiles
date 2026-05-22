@@ -1,0 +1,1 @@
+vscode "denoland.vscode-deno"
