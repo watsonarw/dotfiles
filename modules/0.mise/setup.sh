@@ -37,20 +37,20 @@ activate_mise() {
 }
 
 
-link_mise_config_with_module_name() {
+link_mise_config() {
   local source_path=$1
-  local module_name
-  module_name=$(basename "$(dirname "$source_path")")
-  local symlink_path="${mise_conf_dir}/${module_name}.toml"
+  local module_name=$(basename "$(dirname "$source_path")")
+  local filename=$(basename "$source_path")
+  local symlink_path="${mise_conf_dir}/${module_name}.${filename}"
 
   style "Linking ${source_path}"
 
   safe_link_into_dir "${source_path}" "${symlink_path}"
 }
 
-link_mise_configs_in_directory() {
+link_mise_configs() {
   for FILE; do
-    link_mise_config_with_module_name "$FILE"
+    link_mise_config "$FILE"
   done
 }
 
@@ -58,7 +58,8 @@ setup_modular_mise_config() {
   bold "Setting up mise config for modules"
   mkdir -p "${mise_conf_dir}"
 
-  link_mise_configs_in_directory $(enabled_module_files "mise.toml")
+  link_mise_configs $(enabled_module_files "mise.toml")
+  link_mise_configs $(enabled_module_files "*.mise.toml")
 }
 
 
