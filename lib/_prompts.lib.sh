@@ -12,7 +12,7 @@ confirm_yes_no() {
       return 1 # No
       ;;
     *)
-      red "Invalid input. Please enter 'y' or 'n'."
+      style red "Invalid input. Please enter 'y' or 'n'."
       ;;
     esac
   done

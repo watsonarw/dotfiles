@@ -24,23 +24,24 @@ brew_location() {
 }
 
 install_homebrew() {
-  bold "Checking for active brew installation"
+  style bold underline yellow "Installing and activating Homebrew"
+  style dim "Checking for active brew installation"
   if ! command_exists brew; then
-    echo "Brew is not active"
-    bold "Checking for existing brew installation"
+    style dim "Brew is not active"
+    style dim "Checking for existing brew installation"
 
     if [ -z "$(brew_location)" ]; then
-      h2 "Installing Homebrew"
+      style bold "Installing Homebrew"
       /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-      green_tick "Installed Homebrew"
+      style dim green "Installed Homebrew"
     else
-      echo "Brew is installed at $(brew_location), skipping install..."
+      style dim "Brew is installed at $(brew_location), skipping"
     fi
 
-    h2 "Activating homebrew"
+    style bold "Activating homebrew"
     eval $($(brew_location) shellenv)
   else
-    echo "Brew is installed and activated"
+    style dim "Brew is installed and activated"
   fi
 }
 
@@ -51,7 +52,7 @@ clear_global_brewfile() {
 
 include_in_global_brewfile() {
   local brewfile=$1
-  echo "Including ${brewfile}"
+  style dim "Including ${brewfile}"
   echo "instance_eval(File.read('$brewfile'))" >>"${HOME}/.Brewfile"
 }
 
@@ -62,24 +63,25 @@ include_modular_brewfiles() {
 }
 
 setup_global_brewfile() {
-  h2 "Setting up global Brewfile"
+  style bold underline yellow "Setting up global Brewfile"
   clear_global_brewfile
   include_modular_brewfiles $(enabled_module_files '*.Brewfile')
 }
 
 install_brew_deps() {
-  h2 "Running brew bundle"
+  style bold underline yellow "Running brew bundle"
   brew bundle --global
 
 }
 
 main() {
-  h1 "Setting up ${script_dir}"
+  style bold underline blue "Setting up brew"
+
   install_homebrew
   setup_global_brewfile
   install_brew_deps
 
-  green_tick "Done"
+  style green "Brew setup complete"
 }
 
 main

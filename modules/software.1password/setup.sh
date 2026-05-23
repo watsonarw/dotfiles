@@ -14,7 +14,7 @@ check_ssh_config() {
 }
 
 setup_1password_ssh_agent() {
-  h2 "Setting up 1password ssh agent"
+  style bold underline yellow "Setting up 1Password SSH agent"
 
   mkdir -p "${ssh_dir}"
   touch "${ssh_config_file}"
@@ -28,14 +28,14 @@ Host *
   IdentityAgent "~/.1password/agent.sock"
 
 EOF
-    green_tick "set config is setup"
+    style dim green "SSH config is set up"
   else
-    echo "ssh config is already set up to use 1password agent"
+    style dim "SSH config is already set up"
   fi
 }
 
 github_fail_message() {
-  red "Failed to connect to github. Please make sure 1password is setup."
+  style red "Failed to connect to GitHub. Please make sure 1Password is set up."
 }
 
 test_github_ssh() {
@@ -43,11 +43,11 @@ test_github_ssh() {
 }
 
 validate_github_ssh() {
-  h2 "Checking ssh connection to github"
+  style bold underline yellow "Validating GitHub SSH"
   set +e
   test_github_ssh
   if [ $? -eq 1 ]; then
-    green_tick "Connection to github successful"
+    style dim green "Connection to GitHub successful"
   else
     github_fail_message
     exit 1
@@ -56,12 +56,12 @@ validate_github_ssh() {
 }
 
 main() {
-  h1 "Setting up ${script_dir}"
+  style bold underline blue "Setting up 1Password"
 
   setup_1password_ssh_agent
   validate_github_ssh
 
-  green_tick "Done"
+  style green "1Password setup complete"
 }
 
 main

@@ -125,36 +125,4 @@ style() {
   done
 }
 
-red() { style red "$1"; }
-green() { style green "$1"; }
-yellow() { style yellow "$1"; }
-blue() { style blue "$1"; }
-bold() { style bold "$1"; }
-invert() { style invert "$1"; }
-
-h1() {
-  style bold blue <<EOF
-
-********** $1 **********
-
-EOF
-}
-
-h2() {
-  style bold yellow <<EOF
-
-========== $1 ==========
-
-EOF
-}
-
-h3() {
-  style bold "---------- $1 ----------"
-}
-
-green_tick() {
-  local message=${1-}
-  printf '%s %s\n' "${BOLD}${GREEN}✓${RESET}" "$message"
-}
-
 setup_color

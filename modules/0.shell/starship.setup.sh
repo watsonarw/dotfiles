@@ -9,15 +9,15 @@ load_libs "$lib_dir"
 install_dir="${HOME}/.local/bin"
 
 main() {
-  h1 "Setting up ${script_dir}"
+  style bold underline blue "Setting up starship"
 
-  h2 "Installing or updating starship prompt"
+  style bold "Installing or updating starship"
 
   curl -sS https://starship.rs/install.sh | sh -s -- \
     --bin-dir "$install_dir" \
     --yes
 
-  green_tick "Done"
+  style green "Starship setup complete"
 }
 
 main

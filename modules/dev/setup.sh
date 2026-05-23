@@ -9,7 +9,7 @@ load_libs "$lib_dir"
 vscode_user_dir="${HOME}/Library/Application Support/Code/User"
 
 link_settings_json() {
-  h2 "Linking vscode settings"
+  style bold "Linking VS Code settings"
   local vscode_settings_json="${vscode_user_dir}/settings.json"
   local settings_json_file="${script_dir}/vscode-settings.json"
 
@@ -17,11 +17,11 @@ link_settings_json() {
 }
 
 main() {
-  h1 "Setting up ${script_dir}"
+  style bold underline blue "Setting up dev tools"
 
   link_settings_json
 
-  green_tick "Done"
+  style green "Dev tools setup complete"
 }
 
 main

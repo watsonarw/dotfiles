@@ -7,9 +7,9 @@ lib_dir="$script_dir/../../lib"
 load_libs "$lib_dir"
 
 main() {
-  h1 "Setting up ${script_dir}"
+  style bold underline blue "Setting up <script>"
 
-  green_tick "Done"
+  style green "<Script> setup complete"
 }
 
 main

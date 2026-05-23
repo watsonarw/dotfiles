@@ -24,21 +24,21 @@ set_dark_mode() {
 macos_general_setup() {
   set_dark_mode
 
-  echo "Show Battery Percentage on the menu bar"
+  style dim "Show Battery Percentage on the menu bar"
   defaults -currentHost write com.apple.controlcenter Battery -int 2
   defaults -currentHost write com.apple.controlcenter BatteryShowPercentage -bool true
 
-  echo "Disable auto-correct spelling automatically"
+  style dim "Disable auto-correct spelling automatically"
   defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
-  echo "Show seconds and 24h time in menu bar"
+  style dim "Show seconds and 24h time in menu bar"
   defaults write NSGlobalDomain AppleICUForce24HourTime -bool true
   defaults write com.apple.menuextra.clock ShowSeconds -bool true
 
-  echo "Show bluetooth status in menubar"
+  style dim "Show bluetooth status in menubar"
   defaults write com.apple.controlcenter "NSStatusItem Visible Bluetooth" -bool true
 
-  echo "Use AirDrop over every interface."
+  style dim "Use AirDrop over every interface."
   defaults write com.apple.NetworkBrowser BrowseAllInterfaces 1
 }
 
@@ -46,17 +46,17 @@ macos_general_setup() {
 # Finder                                                                      #
 ###############################################################################
 macos_finder_setup() {
-  echo "Always open everything in Finder's list view. This is important."
+  style dim "Always open everything in Finder's list view. This is important."
   defaults write com.apple.Finder FXPreferredViewStyle Nlsv
 
-  echo "Show the ~/Library folder."
+  style dim "Show the ~/Library folder."
   chflags nohidden ~/Library
 
-  echo "Set User home as the default location for new Finder windows"
+  style dim "Set User home as the default location for new Finder windows"
   defaults write com.apple.finder NewWindowTarget -string "PfHm"
   defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/"
 
-  echo "Show all filename extensions"
+  style dim "Show all filename extensions"
   defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 }
 
@@ -64,17 +64,17 @@ macos_finder_setup() {
 # Keyboard                                                                    #
 ###############################################################################
 macos_keyboard_setup() {
-  echo "Set a fast keyboard repeat rate"
+  style dim "Set a fast keyboard repeat rate"
   defaults write NSGlobalDomain KeyRepeat -int 2
   defaults write NSGlobalDomain InitialKeyRepeat -int 20
 
-  echo "Disable press-and-hold for keys in favor of key repeat"
+  style dim "Disable press-and-hold for keys in favor of key repeat"
   defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
-  echo "Use Function keys as Function keys"
+  style dim "Use Function keys as Function keys"
   defaults write NSGlobalDomain com.apple.keyboard.fnState -bool true
 
-  echo "Enable Use keyboard navigation to move focus between controls"
+  style dim "Enable Use keyboard navigation to move focus between controls"
   defaults write -g AppleKeyboardUIMode -int 2
 }
 
@@ -82,14 +82,14 @@ macos_keyboard_setup() {
 # Dock                                                                     #
 ###############################################################################
 macos_dock_setup() {
-  echo "Automatically hide and show the Dock"
+  style dim "Automatically hide and show the Dock"
   defaults write com.apple.dock autohide -bool true
 
-  echo "remove all icons from the dock"
+  style dim "Remove all icons from the dock"
   defaults write com.apple.dock persistent-apps -array
   defaults write com.apple.dock show-recents -bool false
 
-  echo "Set the Finder prefs for showing a few different volumes on the Desktop."
+  style dim "Set the Finder prefs for showing a few different volumes on the Desktop."
   defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
   defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
 }
@@ -99,7 +99,7 @@ macos_dock_setup() {
 ###############################################################################
 
 macos_privacy_setup() {
-  echo "Require password immediately after sleep or screen saver begins"
+  style dim "Require password immediately after sleep or screen saver begins"
   defaults write com.apple.screensaver askForPassword -int 1
   defaults write com.apple.screensaver askForPasswordDelay -int 0
 }
@@ -109,7 +109,7 @@ macos_privacy_setup() {
 ###############################################################################
 
 macos_trackpad_setup() {
-  echo "enable tap to click for this user and for the login screen"
+  style dim "Enable tap to click for this user and for the login screen"
   defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
   defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
   defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
@@ -117,7 +117,7 @@ macos_trackpad_setup() {
 }
 
 setup_defaults() {
-  h2 "Setting up MacOS defaults"
+  style bold "Setting up macOS defaults"
 
   macos_general_setup
   macos_finder_setup
@@ -130,15 +130,15 @@ setup_defaults() {
   killall SystemUIServer
   killall Finder
 
-  style bold yellow "Note that some of these changes require a logout/restart to take effect."
+  style yellow "Note that some of these changes require a logout/restart to take effect."
 }
 
 main() {
-  h1 "Setting up ${script_dir}"
+  style bold underline blue "Setting up macOS"
 
   setup_defaults
 
-  green_tick "Done"
+  style green "macOS setup complete"
 }
 
 main

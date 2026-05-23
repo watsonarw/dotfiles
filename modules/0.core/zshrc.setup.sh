@@ -15,7 +15,7 @@ clear_global_zshrc() {
 include_in_global_zshrc() {
   local zshrc_file=$1
 
-  echo "Including ${zshrc_file}"
+  style dim "Including ${zshrc_file}"
 
   echo ". ${zshrc_file}" >>"${global_zshrc}"
 }
@@ -27,12 +27,13 @@ include_modular_zshrcs() {
 }
 
 main() {
-  bold "Resetting .zshrc file"
+  style bold underline blue "Setting up zshrc"
+  style bold "Resetting .zshrc file"
 
   clear_global_zshrc
   include_modular_zshrcs $(enabled_module_files '*.zshrc')
 
-  green_tick ".zshrc file reset"
+  style green "Zshrc setup complete"
 }
 
 main

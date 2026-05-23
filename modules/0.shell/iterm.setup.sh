@@ -33,21 +33,22 @@ set_iterm_profile_as_default() {
 }
 
 restart_iterm_message() {
-  green_tick "Iterm profile has been set up as default."
-  style yellow "Note: Iterm needs to be restarted for changes to take effect"
+  style dim green "iTerm profile has been set up as default"
+  style yellow "Note: iTerm needs to be restarted for changes to take effect"
 }
 
 main() {
-  h1 "Setting up ${script_dir}"
+  style bold underline blue "Setting up iTerm"
 
   local profile_json="$(resolve_canonical_path "${script_dir}/iterm-profiles.json")"
   local profile_name="AW"
 
+  style bold "Configuring iTerm profile"
   link_iterm_profile $profile_json
   set_iterm_profile_as_default $profile_json $profile_name
   restart_iterm_message
 
-  green_tick "Done"
+  style green "iTerm setup complete"
 }
 
 main

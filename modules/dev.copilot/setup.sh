@@ -9,7 +9,7 @@ load_libs "$lib_dir"
 vscode_user_dir="${HOME}/Library/Application Support/Code/User"
 
 link_copilot_prompts() {
-    h2 "Linking copilot prompts"
+  style bold "Linking Copilot prompts"
   local vscode_prompts_dir="${vscode_user_dir}/prompts"
   local prompts_dir="${script_dir}/prompts"
 
@@ -17,11 +17,11 @@ link_copilot_prompts() {
 }
 
 main() {
-  h1 "Setting up ${script_dir}"
+  style bold underline blue "Setting up Copilot"
 
   link_copilot_prompts
 
-  green_tick "Done"
+  style green "Copilot setup complete"
 }
 
 main

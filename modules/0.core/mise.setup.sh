@@ -11,24 +11,24 @@ readonly mise_conf_dir="${XDG_CONFIG_HOME:-$HOME/.config}/mise/conf.d"
 
 install_and_activate_mise() {
   if ! command_exists mise; then
-    echo "Mise is not active"
+    style dim "Mise is not active"
 
-    bold "Checking for existing mise installation"
+    style dim "Checking for existing mise installation"
 
     if [ ! -e "${mise_install_path}" ]; then
-      bold "Installing mise"
+      style bold "Installing mise"
       curl https://mise.run | sh
     else
-      echo "Mise is installed at ${mise_install_path}, skipping install..."
+      style dim "Mise is installed at ${mise_install_path}, skipping"
     fi
 
-    bold "Activating mise"
+    style bold "Activating mise"
     activate_mise
   fi
 
   mise self-update -y
 
-  green_tick "Mise is installed and activated"
+  style dim green "Mise is installed and activated"
 }
 
 activate_mise() {
@@ -43,7 +43,7 @@ link_mise_config() {
   local filename=$(basename "$source_path")
   local symlink_path="${mise_conf_dir}/${module_name}.${filename}"
 
-  style "Linking ${source_path}"
+  style dim "Linking ${source_path}"
 
   safe_link_into_dir "${source_path}" "${symlink_path}"
 }
@@ -55,7 +55,7 @@ link_mise_configs() {
 }
 
 setup_modular_mise_config() {
-  bold "Setting up mise config for modules"
+  style bold "Setting up mise config for modules"
   mkdir -p "${mise_conf_dir}"
 
   link_mise_configs $(enabled_module_files "mise.toml")
@@ -64,27 +64,27 @@ setup_modular_mise_config() {
 
 
 install_tool_versions() {
-  bold "Installing tool versions"
+  style bold "Installing tool versions"
   mise install -y
 }
 
 cleanup_old_versions() {
-  bold "Cleaning up old versions"
+  style bold "Cleaning up old versions"
   mise prune -y
 }
 
 main() {
 
-  h1 "Setting up ${script_dir}"
-  h2 "Installing and activating mise"
+  style bold underline blue "Setting up mise"
+  style bold underline yellow "Installing and activating mise"
   install_and_activate_mise
 
-  h2 "Setting up tools"
+  style bold underline yellow "Setting up tools"
   setup_modular_mise_config
   install_tool_versions
   cleanup_old_versions
 
-  green_tick "Done"
+  style green "Mise setup complete"
 }
 
 main

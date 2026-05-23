@@ -44,7 +44,7 @@ link_configs_in_xdg_base_path() {
 }
 
 main() {
-  h1 "Setting up ${script_dir}"
+  style bold underline blue "Setting up XDG"
 
   local xdg_config_files="$(enabled_module_files ".config/*")"
 
@@ -52,7 +52,7 @@ main() {
   ensure_xdg_config_dir_exists
   link_configs_in_xdg_base_path $xdg_config_files
 
-  green_tick "Done"
+  style green "XDG setup complete"
 }
 
 main

@@ -4,20 +4,18 @@
 readonly module_persistence_module=".module-persistence.local"
 
 no_modules_selected_message() {
-  style red <<EOF
-No modules were selected. Without any enabled modules, these scripts won't do anything.
-${BOLD}Run this setup again and choose at least one module.
-EOF
+  style red "No modules were selected. Without any enabled modules, these scripts won't do anything."
+  style bold red "Run this setup again and choose at least one module."
 }
 
 environment_modules_message() {
-  blue "Modules from DOTFILES_ENABLED_MODULES environment variable:"
-  bold "  ${DOTFILES_ENABLED_MODULES}"
+  style blue "Modules from DOTFILES_ENABLED_MODULES environment variable:"
+  style bold "  ${DOTFILES_ENABLED_MODULES}"
 }
 
 selected_modules_message() {
-  blue "You've selected the following modules:"
-  bold "  ${DOTFILES_ENABLED_MODULES}"
+  style blue "You've selected the following modules:"
+  style bold "  ${DOTFILES_ENABLED_MODULES}"
 }
 
 persist_module_selection() {
@@ -30,14 +28,14 @@ persist_module_selection() {
   mkdir -p "$module_persistence_dir"
   echo "export DOTFILES_ENABLED_MODULES=\"${DOTFILES_ENABLED_MODULES}\"" >"$module_persistence_dir/.zshrc"
 
-  green_tick "Module selection persisted"
+  style dim green "Module selection persisted"
 }
 
 interactive_module_selection() {
   local selected_modules=()
   local module_list=($(ls "${modules_dir}"))
 
-  blue "Starting interactive module selection."
+  style blue "Starting interactive module selection."
 
   for module in "${module_list[@]}"; do
     confirm_yes_no "Enable module '${module}'?" && selected_modules+=("${module}")

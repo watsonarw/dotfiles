@@ -11,6 +11,7 @@ readonly ZIM_HOME=${XDG_CACHE_HOME:-$HOME/.cache}/zim
 
 
 install_zim() {
+  style bold underline yellow "Installing zim"
   # Download zimfw plugin manager if missing.
   if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
     style bold "Installing zimfw to ${ZIM_HOME}"
@@ -23,21 +24,22 @@ install_zim() {
 
   zimfw upgrade
 
-  green_tick "Zim is installed and up to date"
+  style dim green "Zim is installed and up to date"
 }
 
 install_plugins() {
+  style bold underline yellow "Installing plugins"
   zimfw install
 }
 
 
 main() {
-  h1 "Setting up ${script_dir}"
+  style bold underline blue "Setting up zim"
 
   install_zim
   install_plugins
 
-  green_tick "Done"
+  style green "Zim setup complete"
 }
 
 main

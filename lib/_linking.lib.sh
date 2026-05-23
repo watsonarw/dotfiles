@@ -13,7 +13,7 @@ link_with_conflict_prompt() {
   local symlink_path="$2"
 
   if [ -L "$symlink_path" ]; then
-    style yellow dim "Overwriting existing link at $symlink_path"
+    style dim yellow "Overwriting existing link at $symlink_path"
   elif [ -e "$symlink_path" ]; then
     existing_file_message "$symlink_path"
 
