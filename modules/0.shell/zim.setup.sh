@@ -1,5 +1,6 @@
 #!/usr/bin/env zsh
 set -euo pipefail
+setopt GLOB_SUBST # Allows load_libs to work in zsh
 
 script_dir=$(dirname "$0")
 lib_dir="$script_dir/../../lib"

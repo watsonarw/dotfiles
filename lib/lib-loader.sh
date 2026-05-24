@@ -1,5 +1,7 @@
 # This script is meant to be sourced, not executed.
 
+# Usage: resolve_canonical_path <path>
+# Resolves the canonical path of a file or directory, following symlinks.
 resolve_canonical_path() {
 	target_path="$1"
 
@@ -17,6 +19,8 @@ resolve_canonical_path() {
 	fi
 }
 
+# Usage: is_path_contained <resolved_base> <resolved_file>
+# Checks if resolved_file is within resolved_base directory.
 is_path_contained() {
 	resolved_base="$1"
 	resolved_file="$2"
@@ -28,6 +32,8 @@ is_path_contained() {
 	esac
 }
 
+# Usage: validate_safe_file_access <base_directory> <path_to_file>
+# Validates that a file is a regular file within base_directory.
 validate_safe_file_access() {
 	base_directory="$1"
 	path_to_file="$2"
@@ -59,6 +65,8 @@ validate_safe_file_access() {
 	fi
 }
 
+# Usage: safe_source <base_directory> <path_to_file>
+# Safely sources a file if it is within the given base_directory.
 safe_source() {
 	base_directory="$1"
 	path_to_file="$2"
@@ -86,9 +94,9 @@ safe_load_lib() {
 	base_path="$1"
 	pattern="$2"
 
-	while IFS= read -r lib_file; do
+	for lib_file in ${base_path}/${pattern}.lib.sh; do
 		safe_source "$base_path" "$lib_file"
-	done < <(find "$base_path" -maxdepth 1 -name "${pattern}.lib.sh")
+	done
 }
 
 # Usage: load_libs <lib_directory>

@@ -1,5 +1,5 @@
-#!/usr/bin/env bash
-set -euo pipefail
+#!/usr/bin/env sh
+set -eu
 
 script_dir=$(dirname "$0")
 lib_dir="$script_dir/lib"

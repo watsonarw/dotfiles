@@ -32,16 +32,20 @@ persist_module_selection() {
 }
 
 interactive_module_selection() {
-  local selected_modules=()
-  local module_list=($(ls "${modules_dir}"))
+  local selected_modules=""
 
   style blue "Starting interactive module selection."
 
-  for module in "${module_list[@]}"; do
-    confirm_yes_no "Enable module '${module}'?" && selected_modules+=("${module}")
+  for module_path in "${modules_dir}"/*/; do
+    [ -d "$module_path" ] || continue
+
+    module="$(basename "$module_path")"
+    if confirm_yes_no "Enable module '${module}'?"; then
+      selected_modules="${selected_modules:+$selected_modules }${module}"
+    fi
   done
 
-  export DOTFILES_ENABLED_MODULES="${selected_modules[*]:-}"
+  export DOTFILES_ENABLED_MODULES="${selected_modules}"
 }
 
 setup_enabled_modules() {
@@ -65,19 +69,13 @@ setup_enabled_modules() {
 
 enabled_module_files() {
   local glob_within_module="$1"
-  local all_found_files=()
-
-  shopt -s nullglob dotglob
 
   for module in ${DOTFILES_ENABLED_MODULES}; do
-    [[ -z "$module" ]] && continue
-    local -a paths=($modules_dir/$module/$glob_within_module)
-    for path in "${paths[@]:-}"; do
-      [[ -f "$path" || -d $path ]] && all_found_files+=("$(resolve_canonical_path "$path")")
+    [ -z "$module" ] && continue
+
+    for path in $modules_dir/$module/$glob_within_module; do
+      [ -f "$path" ] || [ -d "$path" ] || continue
+      resolve_canonical_path "$path"
     done
   done
-
-  shopt -u nullglob dotglob
-
-  echo "${all_found_files[@]:-}"
 }
