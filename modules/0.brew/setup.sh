@@ -6,6 +6,9 @@ lib_dir="$script_dir/../../lib"
 . "$lib_dir/lib-loader.sh"
 load_libs "$lib_dir"
 
+: "${XDG_CONFIG_HOME:=${HOME}/.config}"
+readonly global_brewfile="${XDG_CONFIG_HOME}/homebrew/Brewfile"
+
 brew_location() {
   # Adapted from https://github.com/ohmyzsh/ohmyzsh/blob/HEAD/plugins/brew/brew.plugin.zsh
   local brew_location=''
@@ -32,7 +35,7 @@ install_homebrew() {
 
     if [ -z "$(brew_location)" ]; then
       style bold "Installing Homebrew"
-      /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+      /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
       style dim green "Installed Homebrew"
     else
       style dim "Brew is installed at $(brew_location), skipping"
@@ -46,14 +49,15 @@ install_homebrew() {
 }
 
 clear_global_brewfile() {
-  rm -rf "${HOME}/.Brewfile"
-  touch "${HOME}/.Brewfile"
+  rm -rf "$global_brewfile"
+  mkdir -p "$(dirname "$global_brewfile")"
+  touch "$global_brewfile"
 }
 
 include_in_global_brewfile() {
   local brewfile=$1
   style dim "Including ${brewfile}"
-  echo "instance_eval(File.read('$brewfile'))" >>"${HOME}/.Brewfile"
+  echo "instance_eval(File.read('$brewfile'))" >>"$global_brewfile"
 }
 
 include_modular_brewfiles() {
@@ -70,7 +74,7 @@ setup_global_brewfile() {
 
 install_brew_deps() {
   style bold underline yellow "Running brew bundle"
-  brew bundle --global
+  XDG_CONFIG_HOME="$XDG_CONFIG_HOME" brew bundle --global
 
 }
 
