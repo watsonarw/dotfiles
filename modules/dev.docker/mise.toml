@@ -1,4 +1,5 @@
 [tools]
+lima = "latest"
 colima = "latest"
 docker-cli = "latest"
 docker-compose = "latest"
