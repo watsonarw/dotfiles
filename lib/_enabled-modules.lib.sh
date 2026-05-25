@@ -31,15 +31,17 @@ persist_module_selection() {
   style dim green "Module selection persisted"
 }
 
+list_available_modules() {
+  # ls is used to preserve the sort order
+  ls "${modules_dir}"
+}
+
 interactive_module_selection() {
   local selected_modules=""
 
   style blue "Starting interactive module selection."
 
-  for module_path in "${modules_dir}"/*/; do
-    [ -d "$module_path" ] || continue
-
-    module="$(basename "$module_path")"
+  for module in $(list_available_modules); do
     if confirm_yes_no "Enable module '${module}'?"; then
       selected_modules="${selected_modules:+$selected_modules }${module}"
     fi
@@ -70,6 +72,8 @@ setup_enabled_modules() {
 enabled_module_files() {
   local glob_within_module="$1"
 
+  shopt -s dotglob
+
   for module in ${DOTFILES_ENABLED_MODULES}; do
     [ -z "$module" ] && continue
 
@@ -78,4 +82,6 @@ enabled_module_files() {
       resolve_canonical_path "$path"
     done
   done
+
+  shopt -u dotglob
 }
