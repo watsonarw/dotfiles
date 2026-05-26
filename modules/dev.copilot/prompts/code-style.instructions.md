@@ -1,15 +1,15 @@
 ---
 applyTo: '**'
 ---
-- Leave footprints, not fingerprints. Your code should blend seamlessly with the existing codebase.
-- KISS: The simplest code that accomplishes the task is often the best code.
-- Make behavior obvious from reading the code. A function's behavior should be obvious from its name and signature.
-- Use intention-revealing names that convey purpose and meaning.
-- Never add obvious comments that just restate what the code does. Well-named code speaks for itself.
-- Use the language of the problem domain in code, not internal implementation details.
-- Design for easy testing. Avoid hard-to-mock dependencies and global state. Code should have clear inputs and outputs, with minimal side effects.
-- Code should be idiomatic and feel natural in the language it's written in.
-- Follow the existing conventions in the codebase for code style and formatting, unless you have been explicitly instructed to follow a different convention.
-- You must write tests for your code. Plan the tests before writing the code and ensure you're testing outside-in. Mocks should be avoided where possible, and complex dependencies should be replaced with an injected test double that implements the same interface.
-- Never apply a band-aid fix to a problem and leave it unresolved. If you encounter a problem, understand the root cause and if it's coming from an external dependency find out if there's an open issue for it. Workarounds should be extracted into a separate module so that they can be easily removed when the underlying issue is resolved.
-- Work in small steps, pausing often to allow for feedback and course correction. If you write too much code before getting feedback, I will reject it and ask you to do it again in smaller steps.
+- Blend seamlessly with the existing codebase
+  - follow its conventions, idioms, and style
+  - your code should not stand out as clearly written by you
+- KISS: the simplest solution is the best solution.
+- Names should reveal intent.
+  - If a name needs a comment to explain it, rename it.
+  - Comments should only be used to explain why, not what.
+- Use the language of the problem domain, not implementation details.
+- Prefer clear inputs/outputs and minimal side effects to keep code testable and composable.
+- Write tests outside-in before writing implementation. Replace complex dependencies with injected test doubles.
+- Fix root causes, not symptoms.
+- DRY: extract repeated patterns into reusable abstractions.
