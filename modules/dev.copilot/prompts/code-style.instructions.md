@@ -1,15 +1,28 @@
 ---
 applyTo: '**'
 ---
-- Blend seamlessly with the existing codebase
-  - follow its conventions, idioms, and style
-  - your code should not stand out as clearly written by you
+- Scout rule: Leave the code better than you found it.
+  - Make small improvements in the areas of the code you touch
+  - Don't replicate existing poor patterns for the sake of consistency.
+- Write code that follows the CUPID Principles: Composable, Unix philosophy-aligned, Predictable, Idiomatic, and Domain-based.
 - KISS: the simplest solution is the best solution.
-- Names should reveal intent.
+  - A small, targeted solution is better than a large, complex one.
+  - Avoid excessive "belt and braces",
+  - Leverage the type system and language features to enforce correctness rather than re-checking everything everywhere.
+  - The best place to validate data is at the contract or external boundary.
+- Do not re-invent the wheel.
+  - Reach for established, popular libraries for standard problems instead of re-implementing them..
+  - If a library is not available, write a small, focused, tested, utility function in a common location even if it's not yet used elsewhere.
+- Write clean code that is easy to read, understand, and maintain.
+  - Avoid clever or complex solutions when a simpler one will suffice.
+  - Names should reveal intent.
   - If a name needs a comment to explain it, rename it.
-  - Comments should only be used to explain why, not what.
-- Use the language of the problem domain, not implementation details.
-- Prefer clear inputs/outputs and minimal side effects to keep code testable and composable.
-- Write tests outside-in before writing implementation. Replace complex dependencies with injected test doubles.
+  - Comments should only be used to explain _why_, not what.
+  - Apply standard Gang of Four design patterns where appropriate to manage complexity.
+  - Use the language of the problem domain, not implementation details.
+  - Prefer clear inputs/outputs and minimal side effects to keep code testable and composable.
+- Write tests outside-in before writing implementation.
+  - Follow Testing Library guiding principles of testing user outcomes and behaviour.
+  - Replace complex dependencies with injected test doubles.
+  - Do not couple tests to internal structures and implementation details.
 - Fix root causes, not symptoms.
-- DRY: extract repeated patterns into reusable abstractions.
