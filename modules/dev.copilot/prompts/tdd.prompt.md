@@ -1,5 +1,4 @@
 ---
-applyTo: '**'
 agent: agent
 ---
 
