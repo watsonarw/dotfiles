@@ -1,9 +1,9 @@
 ---
 applyTo: '**'
 ---
-- Scout rule: Leave the code better than you found it.
-  - Make small improvements in the areas of the code you touch
-  - Don't replicate existing poor patterns for the sake of consistency.
+- Make a small change that will solve a problem properly, without a workaround or hack.
+  - If the change is not simple, surface options to me for input and discussion.
+- Avoid mixing structural and behavioural changes in the same commit.
 - Write code that follows the CUPID Principles: Composable, Unix philosophy-aligned, Predictable, Idiomatic, and Domain-based.
 - KISS: the simplest solution is the best solution.
   - A small, targeted solution is better than a large, complex one.
@@ -12,7 +12,7 @@ applyTo: '**'
   - The best place to validate data is at the contract or external boundary.
 - Do not re-invent the wheel.
   - Reach for established, popular libraries for standard problems instead of re-implementing them..
-  - If a library is not available, write a small, focused, tested, utility function in a common location even if it's not yet used elsewhere.
+  - If no appropriate library exists, write a small, focused, tested, utility function in a common location even if it's not yet used elsewhere.
 - Write clean code that is easy to read, understand, and maintain.
   - Avoid clever or complex solutions when a simpler one will suffice.
   - Names should reveal intent.
