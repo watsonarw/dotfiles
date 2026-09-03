@@ -36,12 +36,28 @@ activate_mise() {
   eval "$(${mise_install_path} activate bash)"
 }
 
+normalise_config_name() {
+  local -a normalised_inputs=()
+  local input result
+
+  for input; do
+    input="${input//.mise.toml/}"
+    input="${input//mise.toml/}"
+    normalised_inputs+=("${input//./-}")
+  done
+
+  IFS=_ result="${normalised_inputs[*]}"
+
+  printf '%s.toml\n' "${result%_}"
+}
+
 
 link_mise_config() {
   local source_path=$1
   local module_name=$(basename "$(dirname "$source_path")")
   local filename=$(basename "$source_path")
-  local symlink_path="${mise_conf_dir}/${module_name}.${filename}"
+  local config_name=$(normalise_config_name "$module_name" "$filename")
+  local symlink_path="${mise_conf_dir}/${config_name}"
 
   style dim "Linking ${source_path}"
 
