@@ -1,5 +1,7 @@
 ---
-agent: agent
+name: tdd
+description: "Use when implementing features or fixing bugs with a test-driven red-green-refactor workflow."
+disable-model-invocation: true
 ---
 
 Follow a TDD approach to implementation.

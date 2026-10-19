@@ -1,7 +1,8 @@
 ---
+name: tidy-first
 description: "Plan a sequence of preparatory refactors to make a specific objective easier to implement."
-agent: Plan
 argument-hint: "Describe the objective you want to achieve after tidying"
+disable-model-invocation: true
 ---
 
 Identify and plan a sequence of small, safe, structural refactors to make the stated objective easier to implement. Do not implement the objective itself, only plan the tidying steps.
